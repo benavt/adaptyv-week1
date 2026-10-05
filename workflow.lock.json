@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "selection": "Deliberate defaults documentation release: explicit user settings win, generic Foundry budget 1,000 RFD3 backbones; retained guide pins unchanged.",
+  "selection": "Deliberate storage-routing release: repository slugs match across hosts; scientific IDs and guide pins remain unchanged.",
   "workflow": {
     "repository_id": "research-workflows",
-    "commit": "0e9134c938fe86ba97da6a81f3c2bbc79b312a04",
+    "commit": "6f4b774d71c397bb4fdd0cb1987df42a22257a0b",
     "files_sha256": {
       ".gitignore": "2f8cc3bc4f2ab9b6c8af3bcb940f5e903d000832d865c856b61d92116c489991",
       "AGENTS.md": "aed152e9a645d6fd762a3b4680d5d2e779db78538f4fcced03fc3ad018e0a75a",
@@ -18,7 +18,7 @@
       "examples/settings.example.json": "575c93b001a4252d581dcd51aa1acb7a27701d12caaeb01d15ff2e1ba86b69ce",
       "scripts/check_privacy.py": "58be7162040087c27d23b38bb5610c2ef0e1affe10a7d6374d6969730333b5a9",
       "scripts/provenance.py": "3aef0993b29dcffabb65f2483303bc0d9946cb8ef53c770ac3b3cb8813672662",
-      "scripts/workflow.py": "894f8719085c8609de7762432d1759ef183fb8f4e132a7932dbbbc942402bcf3",
+      "scripts/workflow.py": "9a8e4d0bbf437a688de158a1e4fc2028642fde6d09167e25e15a7a7ffaec72db",
       "stages/01_staging.md": "0e48e98c0d07a63cd04d78bf15597406577a2741b4f174e3b21bd03d74b4f752",
       "stages/02_design.md": "24dc89e4c745444d52d4c269a01b2afcb9d1b9225e8e91439d418eff36f03baf",
       "stages/03_filtering.md": "67dd279ee31b48a97dc49be335e1f4831f18ce86129d9ede92f9cab6e10fa97b",
@@ -27,7 +27,7 @@
       "standards/molecular-views.md": "4f21ef739bd10a648a2b817955271b0438940fb33505b6d11888ae6f25c17f16",
       "standards/presentations.md": "fef1bc0e95819bcf03d963c6371af139ea18a7b9f7e7e9224fb971dcf58345d0",
       "tests/test_provenance.py": "1aad3ecf49e91abc9456c8c0133cc15c43c8793fc237204b6192b88f545f3f6d",
-      "tests/test_workflow.py": "6a1590e574e84e1d53edf8adacfb2f8cd87bbabd803058b59b566c32e3abced7"
+      "tests/test_workflow.py": "27cb7ba26711713bddca4d42fdfa4828aae5422abe39654040d0288627619301"
     }
   },
   "guides": {
