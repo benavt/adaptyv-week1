@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "project_id": "EGFR",
+  "title": "Adaptyv Week1 \u2014 EGFR",
+  "machine_id": "mimas",
+  "target": {
+    "name": "EGFR",
+    "scientific_settings": "Preserve exact historical constructs, molecule topology, source numbering and species; choose new-run settings explicitly."
+  },
+  "default_recipe": {
+    "recipe_id": "campaign-specific-four-stage",
+    "stages": {
+      "01_staging": {
+        "method": "unset; explicit campaign intake and construct validation",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "unset; select campaign-specific engine and scientific parameters",
+        "execution": "mimas"
+      },
+      "03_filtering": {
+        "substeps": [
+          {
+            "method": "unset; select any required prediction/refolding engine",
+            "execution": "mimas"
+          },
+          {
+            "method": "unset; select scoring and acceptance criteria",
+            "execution": "local"
+          }
+        ]
+      },
+      "04_analysis": {
+        "method": "unset; select comparison, ranking and report methods",
+        "execution": "local"
+      }
+    }
+  },
+  "guide_references": {
+    "folding": {
+      "path": "local/guide-releases/folding/dbea42b063dc377f5884ef10b0162a9207ea52eb",
+      "stages": [
+        "01_staging",
+        "03_filtering"
+      ]
+    },
+    "design": {
+      "path": "local/guide-releases/design/1778af5e8d884e7438f14393558402fa4bfbf3f0",
+      "stages": [
+        "02_design"
+      ]
+    }
+  },
+  "environment_roles": {
+    "control": {
+      "execution": "local",
+      "role": "control"
+    },
+    "analysis": {
+      "execution": "local",
+      "role": "analysis"
+    },
+    "molecular_views": {
+      "execution": "local",
+      "role": "molecular_views"
+    },
+    "remote_engines": {
+      "execution": "mimas",
+      "selection": "optional and campaign-specific; resolve chosen engine role through Fleet before execution"
+    }
+  },
+  "historical_navigation": {
+    "manifests": "03_Filtering/campaigns/*/manifest.json",
+    "scientific_registry": "registry/README.md",
+    "policy": "Historical campaigns retain original paths, IDs, actual evidence and incomplete provenance. They are not retrospectively frozen runs."
+  }
+}
