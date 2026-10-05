@@ -15,6 +15,7 @@
 !campaigns/
 !campaigns/*/
 !campaigns/*/campaign.json
+/campaigns/*/README.md
 /campaigns/*/runs/
 /reference/
 /local/
