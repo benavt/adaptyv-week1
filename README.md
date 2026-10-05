@@ -3,7 +3,7 @@
 Independent scientific project `EGFR` for Adaptyv Challenge 01. Prepare inputs
 and analyze results on the Mac; run requested GPU work through Slurm on Mimas.
 This is the primary source repository. Its historical predecessor is retained
-as a read-only GitHub archive; original scientific files remain in place locally.
+as a read-only GitHub archive; historical scientific files are organized by campaign locally.
 
 Start with `python3 scripts/workspace.py show` and [overview.md](overview.md).
 Use `history` to browse the 11 existing campaigns. Read
@@ -14,6 +14,8 @@ project.json                    Target and chosen pipeline responsibilities
 workflow.lock.json              Deliberately pinned shared code and guides
 campaigns/<campaign>/
   campaign.json                 Scientific question and recipe
+  01_staging/ ... 04_analysis/   Preserved historical packages
+  catalog.json / artifacts.jsonl Original paths, file counts and SHA-256 checksums
   runs/<YYYY-MM-DD_label_NNN>/
     run.json                    Immutable input/settings identity and parent link
     01_staging/                 Frozen native inputs
@@ -28,9 +30,13 @@ submissions/                    Frozen reviewed selection packages
 local/                          Private bindings and migration receipts
 ```
 
-The same new-run skeleton is used by Week2. The four historical stage folders
-remain unchanged for existing EGFR campaigns; they are compatibility locations,
-not a second system for new runs. Existing IDs and evidence are preserved.
+Week1 and Week2 use the same new-run skeleton. Week1 also has eleven imported
+historical campaigns, each with the four stage folders. Shared targets, archived
+helpers, engine checkouts and original registry evidence remain in `reference/`.
+Use `python3 scripts/artifacts.py list` for compact campaign counts, and
+`locate ORIGINAL_PATH --verify` to locate an old path and report its current checksum.
+The private map also resolves retired navigation shortcuts without duplicate data.
+
 Native execution adapters for the new run paths still require validation before
 scientific compute. No inference was submitted during organization.
 

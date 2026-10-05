@@ -5,7 +5,9 @@ campaign/stage and load only its pinned guide with `show --stage STAGE`.
 Read docs/WORKSPACE.md and docs/CHALLENGE.md. New runs use the same skeleton as Week2.
 Use `history [CAMPAIGN]` for historical work; keep its files and IDs intact.
 Historical scientific requirements are preserved in
-local/migrations/2026-10-05_primary-repository/source-before.tar.gz (AGENTS.md); read it when invoking legacy workflows.
+reference/AGENTS.md; read it before invoking retained scientific helpers.
+Use scripts/artifacts.py to resolve historical paths. Do not run archived
+navigation/catalog generators against the old stage layout or overwrite evidence.
 
 Prepare inputs locally, submit requested GPU jobs through sbatch on Mimas,
 and score/analyze selected verified results on the Mac. Slurm owns scheduling.
@@ -27,4 +29,5 @@ For one task use a work/YYYY-MM-DD_task-slug branch and its separate worktree.
 main is the stable control checkout; keep commits small and purpose-specific.
 Read Fleet docs/repository-conventions.md for adoption and storage rules.
 Ask a targeted question when a missing scientific choice or disruptive move
-needs user input. Preserve current historical paths until their consumers are audited.
+needs user input. Preserve historical scientific IDs and manifest bytes; resolve old paths through
+the private artifact map. Add new campaign data to the established four stages.

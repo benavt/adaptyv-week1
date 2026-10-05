@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project_id": "EGFR",
+  "campaign_id": "dd1_asp_20261003",
+  "title": "DD1 ASP placement and paired Boltz2 evaluation",
+  "objective": "Four DD1 ASP design groups, Human/Mouse Boltz2 analyses, selections and separately tracked pKa calculations.",
+  "recipe": {
+    "recipe_id": "campaign-specific-four-stage",
+    "stages": {
+      "01_staging": {
+        "method": "unset; explicit campaign intake and construct validation",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "unset; select campaign-specific engine and scientific parameters",
+        "execution": "mimas"
+      },
+      "03_filtering": {
+        "substeps": [
+          {
+            "method": "unset; select any required prediction/refolding engine",
+            "execution": "mimas"
+          },
+          {
+            "method": "unset; select scoring and acceptance criteria",
+            "execution": "local"
+          }
+        ]
+      },
+      "04_analysis": {
+        "method": "unset; select comparison, ranking and report methods",
+        "execution": "local"
+      }
+    }
+  },
+  "adoption": {
+    "kind": "historical campaign import",
+    "recorded_run_ids": [
+      "2026-10-04_DD1_ASP_pair11_3_model2_Human_PROPKA_001",
+      "2026-10-04_pair11_Human_pka_existing_comparison_001"
+    ],
+    "historical_evidence_is_not_frozen_run_proof": true
+  }
+}

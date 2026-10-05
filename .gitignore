@@ -23,3 +23,5 @@
 *.pyc
 
 !docs/HISTORY.md
+
+!scripts/artifacts.py

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "project_id": "EGFR",
+  "campaign_id": "dd2_rf3_top5pct_20261003",
+  "title": "Separate DD1\u2013DD2 complexes: RF3 top-5% reports",
+  "objective": "RF3 complexes targeting DD1_195 and DD1_310, with source-backed selections, DD1 conformation comparisons and reports.",
+  "recipe": {
+    "recipe_id": "campaign-specific-four-stage",
+    "stages": {
+      "01_staging": {
+        "method": "unset; explicit campaign intake and construct validation",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "unset; select campaign-specific engine and scientific parameters",
+        "execution": "mimas"
+      },
+      "03_filtering": {
+        "substeps": [
+          {
+            "method": "unset; select any required prediction/refolding engine",
+            "execution": "mimas"
+          },
+          {
+            "method": "unset; select scoring and acceptance criteria",
+            "execution": "local"
+          }
+        ]
+      },
+      "04_analysis": {
+        "method": "unset; select comparison, ranking and report methods",
+        "execution": "local"
+      }
+    }
+  },
+  "adoption": {
+    "kind": "historical campaign import",
+    "recorded_run_ids": [],
+    "historical_evidence_is_not_frozen_run_proof": true
+  }
+}

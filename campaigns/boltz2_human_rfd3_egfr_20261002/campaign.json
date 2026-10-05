@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "project_id": "EGFR",
+  "campaign_id": "boltz2_human_rfd3_egfr_20261002",
+  "title": "Human RFD3 designs: paired Human/Mouse EGFR Boltz2 evaluation",
+  "objective": "10,000 complete Human/Mouse design pairs, top-ten interface scoring and verified Human-complex ProtonPottsMPNN handoff.",
+  "recipe": {
+    "recipe_id": "campaign-specific-four-stage",
+    "stages": {
+      "01_staging": {
+        "method": "unset; explicit campaign intake and construct validation",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "unset; select campaign-specific engine and scientific parameters",
+        "execution": "mimas"
+      },
+      "03_filtering": {
+        "substeps": [
+          {
+            "method": "unset; select any required prediction/refolding engine",
+            "execution": "mimas"
+          },
+          {
+            "method": "unset; select scoring and acceptance criteria",
+            "execution": "local"
+          }
+        ]
+      },
+      "04_analysis": {
+        "method": "unset; select comparison, ranking and report methods",
+        "execution": "local"
+      }
+    }
+  },
+  "adoption": {
+    "kind": "historical campaign import",
+    "recorded_run_ids": [
+      "2026-10-04_human_rfd3_rank1_pka_plan_001",
+      "2026-10-05_human_rfd3_top10_interface_scoring_001",
+      "Human_RFD3_top10_ProtonPottsMPNN_20261005_001"
+    ],
+    "historical_evidence_is_not_frozen_run_proof": true
+  }
+}

@@ -70,8 +70,9 @@
     }
   },
   "historical_navigation": {
-    "manifests": "03_Filtering/campaigns/*/manifest.json",
-    "scientific_registry": "registry/README.md",
-    "policy": "Historical campaigns retain original paths, IDs, actual evidence and incomplete provenance. They are not retrospectively frozen runs."
+    "manifests": "campaigns/*/04_analysis/history/manifest.json",
+    "scientific_registry": "reference/registry/README.md",
+    "artifact_resolver": "scripts/artifacts.py",
+    "policy": "Original scientific IDs and evidence preserved. Recorded historical paths resolve through the private artifact map; legacy campaigns are not reconstructed frozen runs."
   }
 }

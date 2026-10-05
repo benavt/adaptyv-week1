@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_id": "EGFR",
+  "campaign_id": "dd1_dd2_stitch_afsample3_20261004",
+  "title": "Stitched DD1/DD2\u2013Human EGFR AFSample3 attempts",
+  "objective": "Exact fusion inputs, Human EGFR chemistry/template evidence, and five recorded submission attempts.",
+  "recipe": {
+    "recipe_id": "campaign-specific-four-stage",
+    "stages": {
+      "01_staging": {
+        "method": "unset; explicit campaign intake and construct validation",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "unset; select campaign-specific engine and scientific parameters",
+        "execution": "mimas"
+      },
+      "03_filtering": {
+        "substeps": [
+          {
+            "method": "unset; select any required prediction/refolding engine",
+            "execution": "mimas"
+          },
+          {
+            "method": "unset; select scoring and acceptance criteria",
+            "execution": "local"
+          }
+        ]
+      },
+      "04_analysis": {
+        "method": "unset; select comparison, ranking and report methods",
+        "execution": "local"
+      }
+    }
+  },
+  "adoption": {
+    "kind": "historical campaign import",
+    "recorded_run_ids": [
+      "2026-10-04-DD1_DD2_Stitch_EGFR_AFS3_runs",
+      "2026-10-04-DD1_DD2_Stitch_EGFR_AFS3_submit_001",
+      "2026-10-04-DD1_DD2_Stitch_EGFR_AFS3_submit_002",
+      "2026-10-04-DD1_DD2_Stitch_EGFR_AFS3_submit_003",
+      "2026-10-04-DD1_DD2_Stitch_EGFR_AFS3_submit_004",
+      "2026-10-04-DD1_DD2_Stitch_EGFR_AFS3_submit_005"
+    ],
+    "historical_evidence_is_not_frozen_run_proof": true
+  }
+}

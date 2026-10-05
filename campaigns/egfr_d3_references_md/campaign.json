@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "project_id": "EGFR",
+  "campaign_id": "egfr_d3_references_md",
+  "title": "EGFR D3 references and historical MD",
+  "objective": "Human/Mouse target references, original imported prediction package, and historical GROMACS preparation/results.",
+  "recipe": {
+    "recipe_id": "campaign-specific-four-stage",
+    "stages": {
+      "01_staging": {
+        "method": "unset; explicit campaign intake and construct validation",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "unset; select campaign-specific engine and scientific parameters",
+        "execution": "mimas"
+      },
+      "03_filtering": {
+        "substeps": [
+          {
+            "method": "unset; select any required prediction/refolding engine",
+            "execution": "mimas"
+          },
+          {
+            "method": "unset; select scoring and acceptance criteria",
+            "execution": "local"
+          }
+        ]
+      },
+      "04_analysis": {
+        "method": "unset; select comparison, ranking and report methods",
+        "execution": "local"
+      }
+    }
+  },
+  "adoption": {
+    "kind": "historical campaign import",
+    "recorded_run_ids": [],
+    "historical_evidence_is_not_frozen_run_proof": true
+  }
+}
