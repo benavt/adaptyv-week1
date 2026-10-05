@@ -7,7 +7,7 @@ as a read-only GitHub archive; original scientific files remain in place locally
 
 Start with `python3 scripts/workspace.py show` and [overview.md](overview.md).
 Use `history` to browse the 11 existing campaigns. Read
-[workspace instructions](docs/CAMPAIGN_WORKSPACE.md) before new work.
+[workspace instructions](docs/WORKSPACE.md) before new work.
 
 ```text
 project.json                    Target and chosen pipeline responsibilities
@@ -45,3 +45,5 @@ parameterization; see the private migration receipt rather than publishing it.
 Use stable `main`, a `work/YYYY-MM-DD_task-slug` branch for each bounded task,
 and a separate task worktree. Changed inputs/settings create a successor run;
 update workflow pins deliberately. Preserve explicit user scientific choices.
+
+Read [challenge](docs/CHALLENGE.md) and [historical navigation](docs/HISTORY.md).

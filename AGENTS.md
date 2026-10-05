@@ -2,10 +2,10 @@
 
 Start with `python3 scripts/workspace.py show` and overview.md. Select one
 campaign/stage and load only its pinned guide with `show --stage STAGE`.
-Read docs/CAMPAIGN_WORKSPACE.md. New runs use the same skeleton as Week2.
+Read docs/WORKSPACE.md and docs/CHALLENGE.md. New runs use the same skeleton as Week2.
 Use `history [CAMPAIGN]` for historical work; keep its files and IDs intact.
 Historical scientific requirements are preserved in
-docs/LEGACY_SCIENTIFIC_WORKFLOW.md; read it when invoking legacy workflows.
+local/migrations/2026-10-05_primary-repository/source-before.tar.gz (AGENTS.md); read it when invoking legacy workflows.
 
 Prepare inputs locally, submit requested GPU jobs through sbatch on Mimas,
 and score/analyze selected verified results on the Mac. Slurm owns scheduling.
