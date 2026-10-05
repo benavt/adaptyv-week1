@@ -1,0 +1,2 @@
+# PyMOL visualization snippets — no Python package dependencies.
+# PyMOL must be installed separately and available on PATH as `pymol`.
