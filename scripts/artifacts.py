@@ -89,10 +89,21 @@ def resolve(project, path):
             return value.resolve()
         alias = max(matching, key=lambda root: len(root.parts))
         relative = _under(lexical, alias)
+        fallback_relative = _under(lexical, project)
+        if fallback_relative is None:
+            fallback_relative = relative
+            if alias.name.lower() == 'reference' and relative.parts:
+                fallback_relative = PurePosixPath('reference') / relative
     else:
-        relative = _relative(value.as_posix(), 'Artifact path')
-        if relative.parts[0] == 'campaigns':
-            return project / Path(*relative.parts)
+        original = _relative(value.as_posix(), 'Artifact path')
+        if original.parts[0] == 'campaigns':
+            return project / Path(*original.parts)
+        lexical = project / Path(*original.parts)
+        matching = [root for root in [project, *aliases]
+                    if _under(lexical, root) is not None]
+        alias = max(matching, key=lambda root: len(root.parts)) if matching else project
+        relative = _under(lexical, alias)
+        fallback_relative = original
 
     mapped = _mapped(relative, moves)
     if mapped is not None:
@@ -101,13 +112,13 @@ def resolve(project, path):
             raise ValueError('Artifact mapping escapes the project')
         return destination
 
-    candidate = project / Path(*relative.parts)
+    candidate = project / Path(*fallback_relative.parts)
     if candidate.exists():
         return candidate
-    if relative.parts[0] == 'reference':
+    if fallback_relative.parts[0] == 'reference':
         legacy = candidate
     else:
-        legacy = project / 'reference' / Path(*relative.parts)
+        legacy = project / 'reference' / Path(*fallback_relative.parts)
     if _under(legacy, project) is None:
         raise ValueError('Artifact path escapes the project')
     return legacy
@@ -151,6 +162,30 @@ def _iter_artifact_entries(project, campaign, stage=None):
                 yield line, record
 
 
+def _campaign_ids(project):
+    campaigns = Path(project).expanduser().resolve() / 'campaigns'
+    if campaigns.is_symlink():
+        raise ValueError('Campaign catalog root must not be a symlink')
+    return [path.parent.name for path in sorted(campaigns.glob('*/campaign.json'))
+            if not path.is_symlink() and not path.parent.is_symlink()
+            and IDENTITY.fullmatch(path.parent.name)]
+
+
+def _summary(project, campaign, stage=None, allow_missing=False):
+    stages = {}
+    count = 0
+    catalog = Path(project) / 'campaigns' / campaign / 'artifacts.jsonl'
+    if catalog.is_symlink():
+        raise ValueError('Artifact catalog paths must not be symlinks')
+    if allow_missing and not catalog.exists():
+        return {'campaign_id': campaign, 'count': 0, 'stages': stages}
+    for _, record in _iter_artifact_entries(project, campaign, stage):
+        name = record.get('stage', 'unspecified')
+        stages[name] = stages.get(name, 0) + 1
+        count += 1
+    return {'campaign_id': campaign, 'count': count, 'stages': stages}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
@@ -159,26 +194,26 @@ def main(argv=None):
     locate_parser.add_argument('--verify', action='store_true')
     locate_parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parent.parent)
     list_parser = commands.add_parser('list')
-    list_parser.add_argument('--campaign', required=True)
+    list_parser.add_argument('--campaign')
     list_parser.add_argument('--stage', choices=STAGES)
     list_parser.add_argument('--files', action='store_true')
     list_parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parent.parent)
     args = parser.parse_args(argv)
+    if args.command == 'list' and args.files and not args.campaign:
+        parser.error('--files requires --campaign')
     try:
         if args.command == 'locate':
             print(json.dumps(locate(args.project, args.path, args.verify), separators=(',', ':')))
         elif args.files:
             for line, _ in _iter_artifact_entries(args.project, args.campaign, args.stage):
                 print(line)
+        elif args.campaign:
+            print(json.dumps(_summary(args.project, args.campaign, args.stage),
+                             separators=(',', ':'), sort_keys=True))
         else:
-            stages = {}
-            count = 0
-            for _, record in _iter_artifact_entries(args.project, args.campaign, args.stage):
-                name = record.get('stage', 'unspecified')
-                stages[name] = stages.get(name, 0) + 1
-                count += 1
-            print(json.dumps({'campaign_id': args.campaign, 'count': count,
-                              'stages': stages}, separators=(',', ':'), sort_keys=True))
+            summaries = [_summary(args.project, campaign, args.stage, allow_missing=True)
+                         for campaign in _campaign_ids(args.project)]
+            print(json.dumps(summaries, separators=(',', ':'), sort_keys=True))
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f'artifacts: {exc}', file=sys.stderr)
         return 2
