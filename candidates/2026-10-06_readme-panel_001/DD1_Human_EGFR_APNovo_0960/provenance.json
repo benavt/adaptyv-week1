@@ -1,0 +1,49 @@
+{
+  "panel_position": 17,
+  "candidate_id": "DD1_Human_EGFR_APNovo_0960",
+  "score_design_id": "DD1_Human_EGFR_APNovo_0960",
+  "sequence_sha256": "04a7271a48a87ea1edbfb83d093fd4edb84d2cd7d8be09b37c3b50fbdcfca506",
+  "source_package": "2026-10-05_alphaprotein-novo-top10_001",
+  "source_score_tables": [
+    {
+      "path": "2026-10-05_alphaprotein-novo-top10_001/top10_metrics.csv",
+      "row": "12",
+      "sha256": "04760513018f99d1d0889dab02db80c7bb34d07350b4039229ba64a2bc7b7fea"
+    },
+    {
+      "path": "2026-10-05_alphaprotein-novo-top10_001/top10_metrics.csv",
+      "row": "13",
+      "sha256": "04760513018f99d1d0889dab02db80c7bb34d07350b4039229ba64a2bc7b7fea"
+    }
+  ],
+  "models": [
+    {
+      "species": "Human",
+      "source_model": "candidates/2026-10-05_alphaprotein-novo-top10_001/models/06_DD1_Human_EGFR_APNovo_0960/Human/dd1_human_egfr_apnovo_0960__human_4fd7e39648c8_model_0.cif",
+      "source_sha256": "d7126f55d1c711fa29721ff1a3ac63cdaf7104c720eda28dcfccf4fe85f1fb16",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDSLSINATNIKHFKNCTSISGDLHILPVAFRGDSFTHTPPLDPQELDILKTVKEITGFLLIQAWPENRTDLHAFENLEIIRGRTKQHGQFSLAVVSLNITSLGLRSLKEISDGDVIISGNKNLCYANTINWKKLFGTSGQKTKIISNRGENSCKATGQVCHALCSPEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "619f4e93960e69b0d6e37b312fafdddb76975a101bec4934d49f1871f6663002"
+    },
+    {
+      "species": "Mouse",
+      "source_model": "candidates/2026-10-05_alphaprotein-novo-top10_001/models/06_DD1_Human_EGFR_APNovo_0960/Mouse/dd1_human_egfr_apnovo_0960__mouse_e74d4242511d_model_0.cif",
+      "source_sha256": "0a4223b6712d771a3aa77c972e67ad30b67c5b99a44bd69ea9524eef4b8a9e71",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDTLSINATNIKHFKYCTAISGDLHILPVAFKGDSFTRTPPLDPRELEILKTVKEITGFLLIQAWPDNWTDLHAFENLEIIRGRTKQHGQFSLAVVGLNITSLGLRSLKEISDGDVIISGNRNLCYANTINWKKLFGTPNQKTKIMNNRAEKDCKAVNHVCNPLCSSEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "251b388a69a5747da9af623ca62a43d0ae3ed304e472b6c4ee10aa38b0f3b816"
+    }
+  ],
+  "status": "placeholder_test_panel_not_submitted",
+  "affinity_method": "DeltaForge scoring of supplied structure",
+  "pka_scopes": {
+    "Human": "bound protein complex; target EGFR D3 H37/H100",
+    "Mouse": "bound protein complex; target EGFR D3 H37/H100"
+  },
+  "source_selection_manifest": "candidates/2026-10-05_Test_Submission_20_sequences.provenance.json",
+  "source_selection_sha256": "53495039cfc81d11a1fe72f4a5767f59bca850f5b1d23eb038c3a3d847420888",
+  "source_statistics_snapshot": "candidates/2026-10-06_analysis/2026-10-06_stats_006/manifest.json",
+  "source_statistics_manifest_sha256": "a56775d44040b034da1a4236a940e3ab595615277c10c66893ce1a1e4305d36b"
+}

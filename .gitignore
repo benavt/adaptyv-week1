@@ -26,3 +26,19 @@
 !docs/HISTORY.md
 
 !scripts/artifacts.py
+
+# Reviewed README presentation assets; bulk scientific packages remain ignored.
+!docs/REPOSITORY.md
+!scripts/build_readme_panel.py
+!scripts/render_readme_panel.py
+!candidates/
+!candidates/2026-10-06_readme-panel_001/
+!candidates/2026-10-06_readme-panel_001/**
+!publication/
+!publication/2026-10-06_reference-library.md
+!publication/2026-10-06_manuscript/
+!publication/2026-10-06_manuscript/*.md
+!publication/figures/
+!publication/figures/README.md
+!publication/figures/2026-10-06_egfr-ph-switch-schematic.svg
+!publication/2026-10-06_manuscript/source-manifest.json

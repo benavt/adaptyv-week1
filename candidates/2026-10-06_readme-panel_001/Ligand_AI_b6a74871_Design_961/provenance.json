@@ -1,0 +1,49 @@
+{
+  "panel_position": 14,
+  "candidate_id": "Ligand_AI_b6a74871_Design_961",
+  "score_design_id": "Ligand_AI_b6a74871_Design_961",
+  "sequence_sha256": "f03582b54ecc4667a26417d84ce240df66f5c9ef019fe31547622aebec24bc0f",
+  "source_package": "2026-10-05_ligandai-egfr-top10_001",
+  "source_score_tables": [
+    {
+      "path": "2026-10-05_ligandai-egfr-top10_001/evidence/paired_top10_scores_with_deltaforge_dockq.csv",
+      "row": "6",
+      "sha256": "1f57692fb814b6e2870975dd1aebeb805835f1bd996e2c23d08de5b995f09aa0"
+    },
+    {
+      "path": "2026-10-05_ligandai-egfr-top10_001/evidence/paired_top10_scores_with_deltaforge_dockq.csv",
+      "row": "6",
+      "sha256": "1f57692fb814b6e2870975dd1aebeb805835f1bd996e2c23d08de5b995f09aa0"
+    }
+  ],
+  "models": [
+    {
+      "species": "Human",
+      "source_model": "candidates/2026-10-05_ligandai-egfr-top10_001/models/Ligand_AI_b6a74871_Design_961/Human/Ligand_AI_b6a74871_Design_961__Human_EGFR_D3_model_0.cif",
+      "source_sha256": "d386dc9ff4f14ae800b6084eec177171d67209b6463f45004af13357d9db59c4",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDSLSINATNIKHFKNCTSISGDLHILPVAFRGDSFTHTPPLDPQELDILKTVKEITGFLLIQAWPENRTDLHAFENLEIIRGRTKQHGQFSLAVVSLNITSLGLRSLKEISDGDVIISGNKNLCYANTINWKKLFGTSGQKTKIISNRGENSCKATGQVCHALCSPEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "619f4e93960e69b0d6e37b312fafdddb76975a101bec4934d49f1871f6663002"
+    },
+    {
+      "species": "Mouse",
+      "source_model": "candidates/2026-10-05_ligandai-egfr-top10_001/models/Ligand_AI_b6a74871_Design_961/Mouse/Ligand_AI_b6a74871_Design_961__Mouse_EGFR_D3_model_0.cif",
+      "source_sha256": "77f8398a601d975f5395d5a1ad19e643c5d7983255925fad3bef53adb6a1af2a",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDTLSINATNIKHFKYCTAISGDLHILPVAFKGDSFTRTPPLDPRELEILKTVKEITGFLLIQAWPDNWTDLHAFENLEIIRGRTKQHGQFSLAVVGLNITSLGLRSLKEISDGDVIISGNRNLCYANTINWKKLFGTPNQKTKIMNNRAEKDCKAVNHVCNPLCSSEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "251b388a69a5747da9af623ca62a43d0ae3ed304e472b6c4ee10aa38b0f3b816"
+    }
+  ],
+  "status": "placeholder_test_panel_not_submitted",
+  "affinity_method": "DeltaForge scoring of supplied structure",
+  "pka_scopes": {
+    "Human": "packaged target-chain EGFR D3 histidine predictions; see evidence/scoring_methods.json",
+    "Mouse": "packaged target-chain EGFR D3 histidine predictions; see evidence/scoring_methods.json"
+  },
+  "source_selection_manifest": "candidates/2026-10-05_Test_Submission_20_sequences.provenance.json",
+  "source_selection_sha256": "53495039cfc81d11a1fe72f4a5767f59bca850f5b1d23eb038c3a3d847420888",
+  "source_statistics_snapshot": "candidates/2026-10-06_analysis/2026-10-06_stats_006/manifest.json",
+  "source_statistics_manifest_sha256": "a56775d44040b034da1a4236a940e3ab595615277c10c66893ce1a1e4305d36b"
+}
