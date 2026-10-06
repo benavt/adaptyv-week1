@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "campaign_id": "ligand_ai_human_mouse_boltz2_batch1_20261005",
+  "title": "Legend AI Human Mouse Bolts 2 Batch 1",
+  "objective": "Import and verify the completed paired Human and Mouse EGFR Boltz-2 folding results for LigandAI batch 1.",
+  "recipe": {
+    "recipe_id": "campaign-specific-four-stage",
+    "stages": {
+      "01_staging": {
+        "method": "unset; explicit campaign intake and construct validation",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "unset; select campaign-specific engine and scientific parameters",
+        "execution": "mimas"
+      },
+      "03_filtering": {
+        "substeps": [
+          {
+            "method": "unset; select any required prediction/refolding engine",
+            "execution": "mimas"
+          },
+          {
+            "method": "unset; select scoring and acceptance criteria",
+            "execution": "local"
+          }
+        ]
+      },
+      "04_analysis": {
+        "method": "unset; select comparison, ranking and report methods",
+        "execution": "local"
+      }
+    }
+  },
+  "created_at": "2026-10-05T23:57:02.317581+00:00"
+}
