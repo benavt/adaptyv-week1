@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-06T18:03:40.399945-04:00",
+  "methods_source": {
+    "path": "publication/2026-10-06_egfr-ph-sensitive-binder-methods.md",
+    "sha256": "9acf629117c1d28cbef07a0f1a296a5cf9a4d5d4a48a4117bbe0dfa86309ee8c"
+  },
+  "adaptation": "Portable links and manuscript navigation only; existing scientific prose preserved. Other sections are writing outlines.",
+  "original_cartoon": "Not located; SVG redrawn from interpretation in publication/2026-10-06_methods-source-notes.md",
+  "outputs": {
+    "publication/2026-10-06_reference-library.md": "d1628894dfb87010b6174651b660a6b45280b9ab49d9b3d9ca7aa61ef03b0696",
+    "publication/2026-10-06_manuscript/03-methods.md": "c9529ece7d06f9000345c33ec02123b417a948f1964f2a633b933c07d7352541",
+    "publication/2026-10-06_manuscript/05-discussion.md": "6e55d1403d7d9a27eb44c2317077e096d1da99323ae67ddbbbad7e3f4cb0fd95",
+    "publication/2026-10-06_manuscript/01-abstract.md": "e8e410cc39165318ec91b56cc20cabffd552cb2180b33172fb5b342b36ac4c77",
+    "publication/2026-10-06_manuscript/04-results.md": "2beda494cc89680a08d9dfb6f6508e74922b5112985759e71ec1a23dfaf88417",
+    "publication/2026-10-06_manuscript/02-introduction.md": "48df851be9c857ac4b715f352c802467a39ac63cba7770e379ec8d097eb338b9",
+    "publication/2026-10-06_manuscript/README.md": "b853bdeb54155c6eb0302e24e2a7966e93a1f0079ce5647e5c2ab29662c40b73",
+    "publication/figures/README.md": "6bc9dd2f12eedeb4d0e77a1627858be06b5c7fcb07bd92159ed0f6e4499fefa3",
+    "publication/figures/2026-10-06_egfr-ph-switch-schematic.svg": "759942ef0a7428d5cfdfe7f57c2b92242e6373bd367e32bb0599b02bb68166c7"
+  }
+}

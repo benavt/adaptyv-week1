@@ -1,0 +1,49 @@
+{
+  "panel_position": 5,
+  "candidate_id": "DD1_195_phswitch_0043",
+  "score_design_id": "DD1_195_phswitch_0043",
+  "sequence_sha256": "34b025ca13ad1af9a60c9f1d9767afab512ca317e70c12c1c7aacc517a010a0f",
+  "source_package": "2026-10-05_dd1-ph-redesigns_001",
+  "source_score_tables": [
+    {
+      "path": "2026-10-05_dd1-ph-redesigns_001/all_statistics.csv",
+      "row": "34",
+      "sha256": "abf3c949ff88df22badf1d1221af642da4ea9a299f963558872acf7e8003fddd"
+    },
+    {
+      "path": "2026-10-05_dd1-ph-redesigns_001/all_statistics.csv",
+      "row": "35",
+      "sha256": "abf3c949ff88df22badf1d1221af642da4ea9a299f963558872acf7e8003fddd"
+    }
+  ],
+  "models": [
+    {
+      "species": "Human",
+      "source_model": "campaigns/2026-10-05_dd1-ph-redesigns/runs/2026-10-05_boltz2-import_001/03_filtering/remote-import/production/020/folding/engines/boltz2/boltz2_seed0_batch00000/attempts/0001/native_outputs/boltz_results_inputs/predictions/dd1_195_phswitch_0043__human_6bc0193083de/dd1_195_phswitch_0043__human_6bc0193083de_model_0.cif",
+      "source_sha256": "737076159d4d7ac551d3d96ef545abe9cc0750e1a5c48c65c664fab63b7e5149",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDSLSINATNIKHFKNCTSISGDLHILPVAFRGDSFTHTPPLDPQELDILKTVKEITGFLLIQAWPENRTDLHAFENLEIIRGRTKQHGQFSLAVVSLNITSLGLRSLKEISDGDVIISGNKNLCYANTINWKKLFGTSGQKTKIISNRGENSCKATGQVCHALCSPEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "619f4e93960e69b0d6e37b312fafdddb76975a101bec4934d49f1871f6663002"
+    },
+    {
+      "species": "Mouse",
+      "source_model": "campaigns/2026-10-05_dd1-ph-redesigns/runs/2026-10-05_boltz2-import_001/03_filtering/remote-import/production/020/folding/engines/boltz2/boltz2_seed0_batch00000/attempts/0001/native_outputs/boltz_results_inputs/predictions/dd1_195_phswitch_0043__mouse_85d1c7441f01/dd1_195_phswitch_0043__mouse_85d1c7441f01_model_0.cif",
+      "source_sha256": "d021f56d42890c6379ef1550c05a54b4165c923ee5f015faa1acabd9ac16c298",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDTLSINATNIKHFKYCTAISGDLHILPVAFKGDSFTRTPPLDPRELEILKTVKEITGFLLIQAWPDNWTDLHAFENLEIIRGRTKQHGQFSLAVVGLNITSLGLRSLKEISDGDVIISGNRNLCYANTINWKKLFGTPNQKTKIMNNRAEKDCKAVNHVCNPLCSSEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "251b388a69a5747da9af623ca62a43d0ae3ed304e472b6c4ee10aa38b0f3b816"
+    }
+  ],
+  "status": "placeholder_test_panel_not_submitted",
+  "affinity_method": "DeltaForge scoring of supplied structure",
+  "pka_scopes": {
+    "Human": "bound protein complex; target EGFR D3 H37/H100",
+    "Mouse": "bound protein complex; target EGFR D3 H37/H100"
+  },
+  "source_selection_manifest": "candidates/2026-10-05_Test_Submission_20_sequences.provenance.json",
+  "source_selection_sha256": "53495039cfc81d11a1fe72f4a5767f59bca850f5b1d23eb038c3a3d847420888",
+  "source_statistics_snapshot": "candidates/2026-10-06_analysis/2026-10-06_stats_006/manifest.json",
+  "source_statistics_manifest_sha256": "a56775d44040b034da1a4236a940e3ab595615277c10c66893ce1a1e4305d36b"
+}
