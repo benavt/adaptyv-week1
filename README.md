@@ -5,7 +5,11 @@ and analyze results on the Mac; run requested GPU work through Slurm on Mimas.
 This is the primary source repository. Its historical predecessor is retained
 as a read-only GitHub archive; historical scientific files are organized by campaign locally.
 
-## Manuscript and supplement
+## Publication
+
+Benavides, Tiburon L.; Shurina, Ben; and Montelione, Gaetano T. (2026).
+*Computational design and candidate prioritization of putatively pH-sensitive EGFR binders.*
+Manuscript version: 7 October 2026.
 
 - [Main text (PDF)](2026-10-06_egfr-ph-sensitive-binder-methods.pdf)
 - [Supplementary Materials (PDF)](2026-10-06_egfr-ph-sensitive-binder-supplement.pdf)
