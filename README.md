@@ -5,6 +5,11 @@ and analyze results on the Mac; run requested GPU work through Slurm on Mimas.
 This is the primary source repository. Its historical predecessor is retained
 as a read-only GitHub archive; historical scientific files are organized by campaign locally.
 
+## Manuscript and supplement
+
+- [Main text (PDF)](2026-10-06_egfr-ph-sensitive-binder-methods.pdf)
+- [Supplementary Materials (PDF)](2026-10-06_egfr-ph-sensitive-binder-supplement.pdf)
+
 Start with `python3 scripts/workspace.py show` and [overview.md](overview.md).
 Use `history` to browse the 11 existing campaigns. Read
 [workspace instructions](docs/WORKSPACE.md) before new work.
