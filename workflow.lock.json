@@ -3,7 +3,7 @@
   "selection": "Deliberate storage-routing release: repository slugs match across hosts; scientific IDs and guide pins remain unchanged.",
   "workflow": {
     "repository_id": "research-workflows",
-    "commit": "1acce6d8a92c933edeb5756690481ba1999809d2",
+    "commit": "e2e2f3ac9d2f6dcd5965c16da957c93d37df4d4c",
     "files_sha256": {
       ".gitignore": "2f8cc3bc4f2ab9b6c8af3bcb940f5e903d000832d865c856b61d92116c489991",
       "AGENTS.md": "cd21001e77d4cdb2f623711426a5d71e6363a1b8b7a4e4496c0f285a68d09569",
@@ -17,7 +17,7 @@
       "examples/candidate.example.json": "850ff0eb8853a2cbeaaeadf6a6eb6bd94ea8f51301d47cb006ddd1ac81ab850c",
       "examples/observation.example.json": "adb234ab1d501ce6c4ba2ddf52836684fed68791ea8f0ccf668a8da47c47d173",
       "examples/settings.example.json": "575c93b001a4252d581dcd51aa1acb7a27701d12caaeb01d15ff2e1ba86b69ce",
-      "scripts/check_privacy.py": "58be7162040087c27d23b38bb5610c2ef0e1affe10a7d6374d6969730333b5a9",
+      "scripts/check_privacy.py": "37a2845e2a65c75b6496bac4c48f6958bfed6b7c11f8848cd862ba5f09530334",
       "scripts/provenance.py": "3aef0993b29dcffabb65f2483303bc0d9946cb8ef53c770ac3b3cb8813672662",
       "scripts/workflow.py": "9a8e4d0bbf437a688de158a1e4fc2028642fde6d09167e25e15a7a7ffaec72db",
       "stages/01_staging.md": "0e48e98c0d07a63cd04d78bf15597406577a2741b4f174e3b21bd03d74b4f752",
