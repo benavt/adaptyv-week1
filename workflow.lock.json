@@ -3,12 +3,13 @@
   "selection": "Deliberate storage-routing release: repository slugs match across hosts; scientific IDs and guide pins remain unchanged.",
   "workflow": {
     "repository_id": "research-workflows",
-    "commit": "6f4b774d71c397bb4fdd0cb1987df42a22257a0b",
+    "commit": "1acce6d8a92c933edeb5756690481ba1999809d2",
     "files_sha256": {
       ".gitignore": "2f8cc3bc4f2ab9b6c8af3bcb940f5e903d000832d865c856b61d92116c489991",
-      "AGENTS.md": "aed152e9a645d6fd762a3b4680d5d2e779db78538f4fcced03fc3ad018e0a75a",
-      "README.md": "506842e03ce78c9111c64525fa677b02220d12ea6be3e28413151128fcf2e8c5",
-      "docs/defaults.md": "641e71bce5572780188a9d2df8ccc8039f8e60f4d90a7c60b822eb179c31abbc",
+      "AGENTS.md": "cd21001e77d4cdb2f623711426a5d71e6363a1b8b7a4e4496c0f285a68d09569",
+      "README.md": "000352ac6468cb73de9504cb169cfb5f218fd68b181da8612270ff4f23a1241e",
+      "docs/defaults.md": "40939a158e01e75250d12d81841d004632a4f1805a47b9fca8609f2f7aac4c77",
+      "docs/execution-contract.md": "51ab86228b2dea680e0b6701f8caba382f1ba256cd5d92b8c3fa06365ea65bec",
       "docs/provenance.md": "58f276fa3124c1988ce1f14627b5374610e40be10792459ee875fe69edfb4518",
       "environments/README.md": "9547021e40795668f38da0c05f94ca37cc56d1ce205aa3d9e5f1a63827a22683",
       "environments/roles.json": "ba041c5db196a9764c98af4b195a55be3b9e232392c8ffb83e618829e65c9708",
