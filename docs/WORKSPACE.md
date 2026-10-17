@@ -1,5 +1,15 @@
 # EGFR campaign workflow
 
+## Shared workflow source
+
+This repository pins the shared implementation as the
+`external/research-workflows` submodule. Initialize it with
+`git submodule update --init external/research-workflows`; the front door checks
+that its commit matches `workflow.lock.json` before loading shared commands.
+Keep the private Fleet `local/fleet.json` binding for host paths and runtimes.
+Projects without this submodule continue to use their existing `workflow_home`
+binding or an explicit `WORKFLOWS_HOME` override.
+
 Use one project (`EGFR`), a campaign for each scientific question, and immutable
 runs for its attempts. The four stage names match locally and remotely:
 
