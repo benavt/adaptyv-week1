@@ -49,7 +49,9 @@ if sys.argv[1:2]==['history']:
           'path_resolver':'python3 scripts/artifacts.py locate ORIGINAL_PATH --verify',
           'policy':'Original scientific IDs and manifest bytes preserved; use the resolver for recorded historical paths. Status is curated local evidence; historical manifests are not immutable run snapshots or live remote monitoring.'},indent=2))
     raise SystemExit(0)
-home=os.environ.get('WORKFLOWS_HOME') or private.get('workflow_home')
+sys.path.insert(0,str(project/'scripts'))
+from workflow_binding import resolve_workflow_home
+home=resolve_workflow_home(project,private)
 if not home:raise SystemExit('Set WORKFLOWS_HOME or configure ignored local/fleet.json.')
 script=Path(home).expanduser()/'scripts/workflow.py'
 if not script.is_file():raise SystemExit('Shared workflow unavailable at configured location.')

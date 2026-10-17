@@ -23,6 +23,13 @@ Keep shared code/guide pins deliberate. Candidate records, source-linked scores
 and frozen selections must trace exact sequences to their generation runs.
 Do not invent missing historical lineage or overwrite prior evidence.
 
+When `.gitmodules` adopts `external/research-workflows`, initialize that exact
+submodule and use the commit in `workflow.lock.json`; do not fall back to a
+mutable host checkout if the project pin is unavailable. Unadopted checkouts
+continue to use ignored Fleet `workflow_home` or `WORKFLOWS_HOME`. Keep this
+project's scientific guide pins unchanged during shared-workflow adoption; see
+`docs/WORKSPACE.md` for new-run procedure.
+
 Fleet resolves private paths, machines, environments, selected downloads and
 archives. Keep bulk artifacts outside Git; never delete unique/unverified data.
 For one task use a work/YYYY-MM-DD_task-slug branch and its separate worktree.
