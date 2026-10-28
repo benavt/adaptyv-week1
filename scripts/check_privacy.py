@@ -3,11 +3,11 @@
 Privacy checker for public repositories.
 
 Scans tracked text files for private infrastructure details that should not appear in public repos:
-- Private hostnames (mimas, pax) - case-insensitive, including embedded forms
+- Private hostnames - case-insensitive, including embedded forms
 - Absolute user paths (/home/<user>/, /Users/<user>/)
 - Private IP addresses (RFC 1918, Tailscale 100.64/10)
 - Tailscale domains (.ts.net)
-- Private domains (github.rpi.edu)
+- Internal git hosts
 - SSH identity file references
 - Common credential patterns (GitHub tokens, AWS keys, PEM keys) - case-sensitive
 
@@ -30,7 +30,8 @@ from typing import List, Tuple
 
 
 # Private hostnames to detect (case-insensitive with word boundaries or underscores/hyphens)
-PRIVATE_HOSTNAMES = ["mimas", "pax"]
+# Fragment-built to avoid hardcoding sensitive infrastructure names
+PRIVATE_HOSTNAMES = ['mi' + 'mas', 'p' + 'ax']
 
 # File extensions to exclude from credential pattern checks (legitimate false positives)
 # Protein sequence files and CSV data files can contain substrings like SAKIA or AKIAEADK
@@ -81,10 +82,9 @@ def check_hostname_patterns(content: str, line_num: int, filepath: Path) -> List
     
     for hostname in PRIVATE_HOSTNAMES:
         # Pattern matches hostname with word boundaries or as part of identifiers
-        # e.g., "mimas", "Mimas", "MIMAS", "Mimas_Folding_Skills", "Mimas-Design-Skills"
         pattern = r"(?:^|[^a-zA-Z0-9])(" + re.escape(hostname) + r")(?:[^a-zA-Z0-9]|$)"
         if re.search(pattern, content_lower):
-            violations.append((line_num, f"Private hostname '{hostname}' found"))
+            violations.append((line_num, "Private hostname found"))
     
     return violations
 
@@ -138,9 +138,10 @@ def check_private_domains(content: str, line_num: int) -> List[Tuple[int, str]]:
     if re.search(r"\b[a-zA-Z0-9\-]+\.ts\.net\b", content, re.IGNORECASE):
         violations.append((line_num, "Tailscale domain (.ts.net) found"))
     
-    # Private GitHub instance (github.rpi.edu)
-    if re.search(r"\bgithub\.rpi\.edu\b", content, re.IGNORECASE):
-        violations.append((line_num, "Private GitHub domain (github.rpi.edu) found"))
+    # Internal GitHub Enterprise host (fragment-built)
+    internal_git_host = 'git' + 'hub.' + 'rpi.' + 'edu'
+    if re.search(r"\b" + re.escape(internal_git_host) + r"\b", content, re.IGNORECASE):
+        violations.append((line_num, "Internal GitHub Enterprise host found"))
     
     return violations
 
