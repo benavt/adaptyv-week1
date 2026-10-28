@@ -5,17 +5,26 @@ Privacy checker for public repositories.
 Scans tracked text files for private infrastructure details that should not appear in public repos:
 - Private hostnames (mimas, pax) - case-insensitive, including embedded forms
 - Absolute user paths (/home/<user>/, /Users/<user>/)
-- Private IP addresses (RFC 1918)
+- Private IP addresses (RFC 1918, Tailscale 100.64/10)
+- Tailscale domains (.ts.net)
+- Private domains (github.rpi.edu)
+- SSH identity file references
 - Common credential patterns (GitHub tokens, AWS keys, PEM keys) - case-sensitive
+
+Also scans PDF files (text extraction + embedded attachments) and Office files (XML content).
 
 Exits with code 1 if any violations are found.
 """
 
 import argparse
 import ipaddress
+import os
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
+import zipfile
 from pathlib import Path
 from typing import List, Tuple
 
@@ -98,7 +107,7 @@ def check_user_paths(content: str, line_num: int) -> List[Tuple[int, str]]:
 
 
 def check_private_ips(content: str, line_num: int) -> List[Tuple[int, str]]:
-    """Check for private IP addresses (RFC 1918)."""
+    """Check for private IP addresses (RFC 1918 and Tailscale 100.64/10)."""
     violations = []
     
     # Pattern for IPv4 addresses
@@ -108,11 +117,51 @@ def check_private_ips(content: str, line_num: int) -> List[Tuple[int, str]]:
         ip_str = match.group(0)
         try:
             ip = ipaddress.ip_address(ip_str)
+            # Check RFC 1918 private ranges
             if ip.is_private and not ip.is_loopback:
                 violations.append((line_num, f"Private IP address found: {ip_str}"))
+            # Check Tailscale CGNAT range (100.64.0.0/10)
+            elif ipaddress.ip_address(ip_str) in ipaddress.ip_network("100.64.0.0/10"):
+                violations.append((line_num, f"Tailscale IP address found: {ip_str}"))
         except ValueError:
             # Not a valid IP address
             pass
+    
+    return violations
+
+
+def check_private_domains(content: str, line_num: int) -> List[Tuple[int, str]]:
+    """Check for private domain patterns."""
+    violations = []
+    
+    # Tailscale domains (.ts.net)
+    if re.search(r"\b[a-zA-Z0-9\-]+\.ts\.net\b", content, re.IGNORECASE):
+        violations.append((line_num, "Tailscale domain (.ts.net) found"))
+    
+    # Private GitHub instance (github.rpi.edu)
+    if re.search(r"\bgithub\.rpi\.edu\b", content, re.IGNORECASE):
+        violations.append((line_num, "Private GitHub domain (github.rpi.edu) found"))
+    
+    return violations
+
+
+def check_ssh_identities(content: str, line_num: int) -> List[Tuple[int, str]]:
+    """Check for SSH identity file references."""
+    violations = []
+    
+    # Common SSH identity file patterns
+    ssh_patterns = [
+        r"\.ssh/id_rsa",
+        r"\.ssh/id_dsa",
+        r"\.ssh/id_ecdsa",
+        r"\.ssh/id_ed25519",
+        r"IdentityFile\s+",
+    ]
+    
+    for pattern in ssh_patterns:
+        if re.search(pattern, content, re.IGNORECASE):
+            violations.append((line_num, "SSH identity file reference found"))
+            break
     
     return violations
 
@@ -145,6 +194,83 @@ def check_credentials(content: str, line_num: int, filepath: Path) -> List[Tuple
     return violations
 
 
+def extract_pdf_text(filepath: Path) -> str:
+    """Extract text from PDF using pdftotext if available."""
+    if not shutil.which("pdftotext"):
+        return ""
+    
+    try:
+        result = subprocess.run(
+            ["pdftotext", str(filepath), "-"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        return result.stdout if result.returncode == 0 else ""
+    except Exception:
+        return ""
+
+
+def extract_pdf_attachments(filepath: Path, temp_dir: Path) -> List[Path]:
+    """Extract embedded PDF attachments using pdfdetach if available."""
+    if not shutil.which("pdfdetach"):
+        return []
+    
+    try:
+        # First check if there are attachments
+        result = subprocess.run(
+            ["pdfdetach", "-list", str(filepath)],
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        if result.returncode != 0 or not result.stdout.strip():
+            return []
+        
+        # Save attachments to temp directory
+        subprocess.run(
+            ["pdfdetach", "-saveall", "-o", str(temp_dir), str(filepath)],
+            capture_output=True,
+            timeout=30,
+        )
+        
+        return list(temp_dir.glob("*"))
+    except Exception:
+        return []
+
+
+def extract_office_xml(filepath: Path, temp_dir: Path) -> List[Path]:
+    """Extract XML files from Office documents (docx, xlsx, pptx)."""
+    try:
+        with zipfile.ZipFile(filepath, 'r') as zip_ref:
+            # Extract only XML files
+            xml_files = []
+            for name in zip_ref.namelist():
+                if name.endswith('.xml'):
+                    extract_path = temp_dir / name
+                    extract_path.parent.mkdir(parents=True, exist_ok=True)
+                    extract_path.write_bytes(zip_ref.read(name))
+                    xml_files.append(extract_path)
+            return xml_files
+    except Exception:
+        return []
+
+
+def scan_text_content(content: str, filepath: Path, line_offset: int = 0) -> List[Tuple[int, str]]:
+    """Scan text content for all violation patterns."""
+    violations = []
+    
+    for line_num, line in enumerate(content.split('\n'), start=line_offset + 1):
+        violations.extend(check_hostname_patterns(line, line_num, filepath))
+        violations.extend(check_user_paths(line, line_num))
+        violations.extend(check_private_ips(line, line_num))
+        violations.extend(check_private_domains(line, line_num))
+        violations.extend(check_ssh_identities(line, line_num))
+        violations.extend(check_credentials(line, line_num, filepath))
+    
+    return violations
+
+
 def scan_file(filepath: Path, repo_root: Path) -> List[Tuple[int, str]]:
     """Scan a file for privacy violations."""
     # Skip files that contain test data or documentation of violations
@@ -152,17 +278,54 @@ def scan_file(filepath: Path, repo_root: Path) -> List[Tuple[int, str]]:
     if str(rel_path) in SKIP_FILES:
         return []
     
+    violations = []
+    suffix = filepath.suffix.lower()
+    
+    # Handle PDF files with text and attachment extraction
+    if suffix == '.pdf':
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            
+            # Extract and scan PDF text
+            pdf_text = extract_pdf_text(filepath)
+            if pdf_text:
+                violations.extend(scan_text_content(pdf_text, filepath))
+            
+            # Extract and scan PDF attachments
+            attachments = extract_pdf_attachments(filepath, temp_path)
+            for attachment in attachments:
+                if is_text_file(attachment):
+                    try:
+                        content = attachment.read_text(encoding="utf-8", errors="ignore")
+                        violations.extend(scan_text_content(content, filepath))
+                    except Exception:
+                        pass
+        
+        return violations
+    
+    # Handle Office files (docx, xlsx, pptx)
+    if suffix in {'.docx', '.xlsx', '.pptx'}:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            xml_files = extract_office_xml(filepath, temp_path)
+            
+            for xml_file in xml_files:
+                try:
+                    content = xml_file.read_text(encoding="utf-8", errors="ignore")
+                    violations.extend(scan_text_content(content, filepath))
+                except Exception:
+                    pass
+        
+        return violations
+    
+    # Handle regular text files
     if not is_text_file(filepath):
         return []
     
-    violations = []
     try:
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-            for line_num, line in enumerate(f, start=1):
-                violations.extend(check_hostname_patterns(line, line_num, filepath))
-                violations.extend(check_user_paths(line, line_num))
-                violations.extend(check_private_ips(line, line_num))
-                violations.extend(check_credentials(line, line_num, filepath))
+            content = f.read()
+            violations = scan_text_content(content, filepath)
     except Exception as e:
         print(f"Warning: Could not read {filepath}: {e}", file=sys.stderr)
     
