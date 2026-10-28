@@ -109,6 +109,116 @@ def extract_printable_strings(filepath: Path, min_length: int = 4) -> str:
         return ""
 
 
+def extract_png_text_chunks(filepath: Path) -> str:
+    """
+    Parse PNG file and extract text from text-bearing chunks only.
+    
+    Scans:
+    - tEXt: Latin-1 text
+    - iTXt: UTF-8 text (optionally compressed)
+    - zTXt: Compressed Latin-1 text
+    - eXIf: EXIF data (may contain text)
+    - Unknown ancillary chunks (lowercase first letter)
+    
+    Skips:
+    - IDAT: Compressed image data (would cause false positives)
+    - Other critical chunks (IHDR, PLTE, IEND, etc.)
+    """
+    import struct
+    import zlib
+    
+    PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'
+    
+    # Critical chunks to skip (uppercase first letter = critical)
+    SKIP_CHUNKS = {b'IHDR', b'PLTE', b'IDAT', b'IEND', b'cHRM', b'gAMA', 
+                   b'iCCP', b'sBIT', b'sRGB', b'bKGD', b'hIST', b'tRNS',
+                   b'pHYs', b'sPLT', b'tIME', b'acTL', b'fcTL', b'fdAT'}
+    
+    try:
+        with open(filepath, "rb") as f:
+            # Check PNG signature
+            signature = f.read(8)
+            if signature != PNG_SIGNATURE:
+                return ""  # Not a PNG
+            
+            text_content = []
+            
+            while True:
+                # Read chunk length
+                length_bytes = f.read(4)
+                if len(length_bytes) < 4:
+                    break
+                
+                length = struct.unpack('>I', length_bytes)[0]
+                chunk_type = f.read(4)
+                if len(chunk_type) < 4:
+                    break
+                
+                chunk_data = f.read(length)
+                crc = f.read(4)  # Read but don't verify CRC
+                
+                if len(chunk_data) < length:
+                    break
+                
+                # Skip IDAT and other known non-text chunks
+                if chunk_type in SKIP_CHUNKS:
+                    continue
+                
+                # Process text chunks
+                if chunk_type == b'tEXt':
+                    # tEXt: keyword\0text (Latin-1)
+                    try:
+                        keyword, _, text = chunk_data.partition(b'\x00')
+                        text_content.append(text.decode('latin-1', errors='ignore'))
+                    except:
+                        pass
+                
+                elif chunk_type == b'iTXt':
+                    # iTXt: keyword\0compression_flag\0compression_method\0language_tag\0translated_keyword\0text
+                    try:
+                        parts = chunk_data.split(b'\x00', 4)
+                        if len(parts) >= 5:
+                            compression_flag = parts[1][0] if parts[1] else 0
+                            text = parts[4]
+                            if compression_flag:
+                                text = zlib.decompress(text)
+                            text_content.append(text.decode('utf-8', errors='ignore'))
+                    except:
+                        pass
+                
+                elif chunk_type == b'zTXt':
+                    # zTXt: keyword\0compression_method\0compressed_text
+                    try:
+                        keyword, rest = chunk_data.split(b'\x00', 1)
+                        if rest:
+                            compression_method = rest[0]
+                            compressed_text = rest[1:]
+                            text = zlib.decompress(compressed_text)
+                            text_content.append(text.decode('latin-1', errors='ignore'))
+                    except:
+                        pass
+                
+                elif chunk_type == b'eXIf':
+                    # eXIf: EXIF data (may contain text fields)
+                    try:
+                        text_content.append(chunk_data.decode('latin-1', errors='ignore'))
+                    except:
+                        pass
+                
+                else:
+                    # Unknown ancillary chunk (lowercase first letter)
+                    if chunk_type[0:1].islower():
+                        try:
+                            text_content.append(chunk_data.decode('latin-1', errors='ignore'))
+                        except:
+                            pass
+            
+            return '\n'.join(text_content)
+    
+    except Exception:
+        return ""
+
+
 def check_hostname_patterns(content: str, line_num: int, filepath: Path) -> List[Tuple[int, str]]:
     """Check for private hostname patterns (case-insensitive)."""
     violations = []
@@ -363,13 +473,23 @@ def scan_file(filepath: Path, repo_root: Path) -> List[Tuple[int, str]]:
         except Exception as e:
             print(f"Warning: Could not read {filepath}: {e}", file=sys.stderr)
     else:
-        # Handle binary files by extracting printable strings
+        # Check for PNG by magic bytes
         try:
-            strings_content = extract_printable_strings(filepath)
-            if strings_content:
-                violations = scan_text_content(strings_content, filepath)
+            with open(filepath, "rb") as f:
+                magic = f.read(8)
+            
+            if magic == b'\x89PNG\r\n\x1a\n':
+                # PNG file - parse chunks and scan only text-bearing chunks
+                png_text = extract_png_text_chunks(filepath)
+                if png_text:
+                    violations = scan_text_content(png_text, filepath)
+            else:
+                # Other binary files - extract printable strings
+                strings_content = extract_printable_strings(filepath)
+                if strings_content:
+                    violations = scan_text_content(strings_content, filepath)
         except Exception as e:
-            print(f"Warning: Could not extract strings from {filepath}: {e}", file=sys.stderr)
+            print(f"Warning: Could not process binary file {filepath}: {e}", file=sys.stderr)
     
     return violations
 
