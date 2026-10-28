@@ -1,0 +1,283 @@
+#!/usr/bin/env python3
+"""
+Tests for check_privacy.py
+"""
+
+import tempfile
+import subprocess
+from pathlib import Path
+
+
+def run_check(repo_dir: Path) -> tuple[int, str, str]:
+    """Run the privacy checker and return exit code, stdout, stderr."""
+    result = subprocess.run(
+        ["python3", "scripts/check_privacy.py", "--repo-root", str(repo_dir)],
+        cwd=repo_dir,
+        capture_output=True,
+        text=True,
+    )
+    return result.returncode, result.stdout, result.stderr
+
+
+def setup_git_repo(tmp_path: Path):
+    """Initialize a git repo and add check_privacy.py."""
+    subprocess.run(["git", "init"], cwd=tmp_path, check=True, capture_output=True)
+    subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=tmp_path, check=True, capture_output=True)
+    subprocess.run(["git", "config", "user.name", "Test User"], cwd=tmp_path, check=True, capture_output=True)
+    
+    # Copy check_privacy.py to the test repo
+    scripts_dir = tmp_path / "scripts"
+    scripts_dir.mkdir()
+    import shutil
+    shutil.copy(Path(__file__).parent.parent / "scripts" / "check_privacy.py", scripts_dir)
+
+
+def add_and_commit_file(repo_dir: Path, filename: str, content: str):
+    """Add a file to git tracking."""
+    filepath = repo_dir / filename
+    filepath.parent.mkdir(parents=True, exist_ok=True)
+    filepath.write_text(content)
+    subprocess.run(["git", "add", filename], cwd=repo_dir, check=True, capture_output=True)
+
+
+def test_clean_repo():
+    """Test that a clean repo passes."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "test.txt", "This is clean content\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 0, f"Expected clean repo to pass. stderr: {stderr}"
+        assert "No privacy violations found" in stdout
+        print("✓ test_clean_repo passed")
+
+
+def test_hostname_lowercase():
+    """Test detection of lowercase hostname."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "test.txt", "Run this on mimas server\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect lowercase hostname"
+        assert "mimas" in stderr.lower()
+        print("✓ test_hostname_lowercase passed")
+
+
+def test_hostname_capitalized():
+    """Test detection of capitalized hostname (regression test)."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "test.txt", "Connect to Mimas for GPU work\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect capitalized hostname"
+        assert "mimas" in stderr.lower()
+        print("✓ test_hostname_capitalized passed")
+
+
+def test_hostname_with_underscore():
+    """Test detection of hostname in identifier like Mimas_Folding_Skills (regression test)."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "config.json", '{"repo": "Mimas_Folding_Skills"}\n')
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect hostname in identifier"
+        assert "mimas" in stderr.lower()
+        print("✓ test_hostname_with_underscore passed")
+
+
+def test_hostname_with_hyphen():
+    """Test detection of hostname in identifier like Mimas-Design-Skills."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "config.json", '{"repo": "Mimas-Design-Skills"}\n')
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect hostname in identifier"
+        assert "mimas" in stderr.lower()
+        print("✓ test_hostname_with_hyphen passed")
+
+
+def test_other_hostname():
+    """Test detection of other private hostname (pax)."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "test.txt", "Use pax for this task\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect pax hostname"
+        assert "pax" in stderr.lower()
+        print("✓ test_other_hostname passed")
+
+
+def test_home_path():
+    """Test detection of /home/<user>/ paths."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "config.sh", "DATA_DIR=/home/jdoe/data\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect /home path"
+        assert "/home/jdoe/" in stderr
+        print("✓ test_home_path passed")
+
+
+def test_users_path():
+    """Test detection of /Users/<user>/ paths."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "config.sh", "PROJECT=/Users/jsmith/projects/test\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect /Users path"
+        assert "/Users/jsmith/" in stderr
+        print("✓ test_users_path passed")
+
+
+def test_private_ip():
+    """Test detection of private IP addresses."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "hosts.txt", "server: 192.168.1.100\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect private IP"
+        assert "192.168.1.100" in stderr
+        print("✓ test_private_ip passed")
+
+
+def test_github_token():
+    """Test detection of GitHub tokens (case-sensitive)."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        # Use a fake but valid-format token
+        add_and_commit_file(repo_dir, "env.txt", "GITHUB_TOKEN=ghp_" + "x" * 36 + "\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect GitHub token"
+        assert "GitHub token" in stderr
+        print("✓ test_github_token passed")
+
+
+def test_aws_key():
+    """Test detection of AWS keys (case-sensitive)."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        # Use a fake but valid-format key
+        add_and_commit_file(repo_dir, "credentials.txt", "AWS_KEY=AKIAIOSFODNN7EXAMPLE\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect AWS key"
+        assert "AWS access key" in stderr
+        print("✓ test_aws_key passed")
+
+
+def test_pem_key():
+    """Test detection of PEM private keys."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        add_and_commit_file(repo_dir, "key.pem", "-----BEGIN PRIVATE KEY-----\nMIIE...\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect PEM key"
+        assert "PEM private key" in stderr
+        print("✓ test_pem_key passed")
+
+
+def test_fasta_file_excluded():
+    """Test that FASTA files are excluded from credential checks."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        # FASTA files can contain sequences like SAKIA that look like AWS keys
+        add_and_commit_file(repo_dir, "sequence.fasta", ">protein1\nSAKIAEADKLGPQRSTUV\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        # Should pass because .fasta files are excluded from credential checks
+        assert exit_code == 0, f"Expected FASTA file to pass. stderr: {stderr}"
+        print("✓ test_fasta_file_excluded passed")
+
+
+def test_csv_file_excluded():
+    """Test that CSV files are excluded from credential checks."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        # CSV files can contain data that looks like credentials
+        add_and_commit_file(repo_dir, "data.csv", "id,sequence\n1,AKIAEADKLMNOP\n")
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        # Should pass because .csv files are excluded from credential checks
+        assert exit_code == 0, f"Expected CSV file to pass. stderr: {stderr}"
+        print("✓ test_csv_file_excluded passed")
+
+
+def test_multiple_violations():
+    """Test detection of multiple violations in one file."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        setup_git_repo(repo_dir)
+        
+        content = """
+        Connect to mimas at 192.168.1.50
+        Data location: /home/testuser/data
+        Also check Pax server
+        """
+        add_and_commit_file(repo_dir, "notes.txt", content)
+        
+        exit_code, stdout, stderr = run_check(repo_dir)
+        assert exit_code == 1, "Expected to detect multiple violations"
+        # Should detect hostname, IP, and path
+        assert "mimas" in stderr.lower()
+        assert "192.168.1.50" in stderr or "pax" in stderr.lower() or "/home/testuser/" in stderr
+        print("✓ test_multiple_violations passed")
+
+
+if __name__ == "__main__":
+    print("Running privacy checker tests...\n")
+    
+    test_clean_repo()
+    test_hostname_lowercase()
+    test_hostname_capitalized()
+    test_hostname_with_underscore()
+    test_hostname_with_hyphen()
+    test_other_hostname()
+    test_home_path()
+    test_users_path()
+    test_private_ip()
+    test_github_token()
+    test_aws_key()
+    test_pem_key()
+    test_fasta_file_excluded()
+    test_csv_file_excluded()
+    test_multiple_violations()
+    
+    print("\n✅ All tests passed!")

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project_id": "EGFR",
   "title": "Adaptyv Week1 \u2014 EGFR",
-  "machine_id": "mimas",
+  "machine_id": "remote-gpu",
   "target": {
     "name": "EGFR",
     "scientific_settings": "Preserve exact historical constructs, molecule topology, source numbering and species; choose new-run settings explicitly."
@@ -16,13 +16,13 @@
       },
       "02_design": {
         "method": "unset; select campaign-specific engine and scientific parameters",
-        "execution": "mimas"
+        "execution": "remote-gpu"
       },
       "03_filtering": {
         "substeps": [
           {
             "method": "unset; select any required prediction/refolding engine",
-            "execution": "mimas"
+            "execution": "remote-gpu"
           },
           {
             "method": "unset; select scoring and acceptance criteria",
@@ -65,7 +65,7 @@
       "role": "molecular_views"
     },
     "remote_engines": {
-      "execution": "mimas",
+      "execution": "remote-gpu",
       "selection": "optional and campaign-specific; resolve chosen engine role through Fleet before execution"
     }
   },
