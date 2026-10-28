@@ -17,7 +17,7 @@ runs for its attempts. The four stage names match locally and remotely:
 | --- | --- | --- |
 | `01_staging` | Validate constructs, topology and hotspot inputs | Mac |
 | `02_design` | Generate designs with the selected campaign engine | Remote GPU |
-| `03_filtering` | Selected predictions/refolding, scoring and selection | the remote GPU cluster, then Mac |
+| `03_filtering` | Selected predictions/refolding, scoring and selection | Remote GPU, then Mac |
 | `04_analysis` | Compare, rank, plot and report | Mac |
 
 New campaign scientific choices are explicit. Commands below show the interface; placeholders do
