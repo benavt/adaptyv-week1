@@ -26,6 +26,9 @@
 !campaigns/*/campaign.json
 /campaigns/*/README.md
 /campaigns/*/runs/
+!vendor/
+!vendor/research-workflows/
+!vendor/research-workflows/**
 /reference/
 /local/
 /drafts/
