@@ -34,7 +34,7 @@
   "guides": {
     "folding": {
       "path": "local/guide-releases/folding/dbea42b063dc377f5884ef10b0162a9207ea52eb",
-      "source_repository_id": "HOST_Folding_Skills",
+      "source_repository_id": "Folding_Reference_Skills",
       "source_commit": "dbea42b063dc377f5884ef10b0162a9207ea52eb",
       "source_form": "unmodified Git archive of existing parent index pin; private read-only release",
       "files_sha256": {
@@ -90,7 +90,7 @@
     },
     "design": {
       "path": "local/guide-releases/design/1778af5e8d884e7438f14393558402fa4bfbf3f0",
-      "source_repository_id": "HOST-Design-Skills",
+      "source_repository_id": "Design_Reference_Skills",
       "source_commit": "1778af5e8d884e7438f14393558402fa4bfbf3f0",
       "source_form": "unmodified Git archive of existing parent index pin; private read-only release",
       "files_sha256": {

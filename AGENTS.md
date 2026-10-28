@@ -9,7 +9,7 @@ reference/AGENTS.md; read it before invoking retained scientific helpers.
 Use scripts/artifacts.py to resolve historical paths. Do not run archived
 navigation/catalog generators against the old stage layout or overwrite evidence.
 
-Prepare inputs locally, submit requested GPU jobs through sbatch on HOST,
+Prepare inputs locally, submit requested GPU jobs through sbatch on remote GPU,
 and score/analyze selected verified results on the Mac. Slurm owns scheduling.
 Native adapters for the new run paths must be validated before scientific jobs.
 Record exact constructs, numbering, chemistry, chain roles, species, engine,

@@ -16,8 +16,8 @@ runs for its attempts. The four stage names match locally and remotely:
 | Stage | EGFR responsibility | Execution |
 | --- | --- | --- |
 | `01_staging` | Validate constructs, topology and hotspot inputs | Mac |
-| `02_design` | Generate designs with the selected campaign engine | HOST |
-| `03_filtering` | Selected predictions/refolding, scoring and selection | HOST, then Mac |
+| `02_design` | Generate designs with the selected campaign engine | remote GPU |
+| `03_filtering` | Selected predictions/refolding, scoring and selection | remote GPU, then Mac |
 | `04_analysis` | Compare, rank, plot and report | Mac |
 
 New campaign scientific choices are explicit. Commands below show the interface; placeholders do
