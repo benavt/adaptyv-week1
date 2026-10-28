@@ -2,7 +2,7 @@
 """
 Privacy checker for public repositories.
 
-Scans tracked text files for private infrastructure details that should not appear in public repos:
+Scans all tracked files (text, binary, PDF, Office) for private infrastructure details:
 - Private hostnames - case-insensitive, including embedded forms
 - Absolute user paths (/home/<user>/, /Users/<user>/)
 - Private IP addresses (RFC 1918, Tailscale 100.64/10)
@@ -11,7 +11,11 @@ Scans tracked text files for private infrastructure details that should not appe
 - SSH identity file references
 - Common credential patterns (GitHub tokens, AWS keys, PEM keys) - case-sensitive
 
-Also scans PDF files (text extraction + embedded attachments) and Office files (XML content).
+Scanning methods:
+- Text files: Direct content scan
+- Binary files: Extract printable ASCII strings (≥4 chars) and scan
+- PDF files: Text extraction + embedded attachments
+- Office files: Unzip and scan XML content
 
 Exits with code 1 if any violations are found.
 """
@@ -73,6 +77,36 @@ def is_text_file(path: Path) -> bool:
             return b"\x00" not in chunk
     except Exception:
         return False
+
+
+def extract_printable_strings(filepath: Path, min_length: int = 4) -> str:
+    """
+    Extract printable ASCII strings from a binary file (like the 'strings' command).
+    Returns extracted strings joined by newlines for pattern matching.
+    """
+    try:
+        with open(filepath, "rb") as f:
+            data = f.read()
+        
+        # Extract sequences of printable ASCII characters (0x20-0x7E)
+        strings = []
+        current = []
+        
+        for byte in data:
+            if 0x20 <= byte <= 0x7E:  # Printable ASCII
+                current.append(chr(byte))
+            else:
+                if len(current) >= min_length:
+                    strings.append(''.join(current))
+                current = []
+        
+        # Don't forget the last string
+        if len(current) >= min_length:
+            strings.append(''.join(current))
+        
+        return '\n'.join(strings)
+    except Exception:
+        return ""
 
 
 def check_hostname_patterns(content: str, line_num: int, filepath: Path) -> List[Tuple[int, str]]:
@@ -319,16 +353,23 @@ def scan_file(filepath: Path, repo_root: Path) -> List[Tuple[int, str]]:
         
         return violations
     
-    # Handle regular text files
-    if not is_text_file(filepath):
-        return []
-    
-    try:
-        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
-            content = f.read()
-            violations = scan_text_content(content, filepath)
-    except Exception as e:
-        print(f"Warning: Could not read {filepath}: {e}", file=sys.stderr)
+    # Check if file is text or binary
+    if is_text_file(filepath):
+        # Handle regular text files
+        try:
+            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+                violations = scan_text_content(content, filepath)
+        except Exception as e:
+            print(f"Warning: Could not read {filepath}: {e}", file=sys.stderr)
+    else:
+        # Handle binary files by extracting printable strings
+        try:
+            strings_content = extract_printable_strings(filepath)
+            if strings_content:
+                violations = scan_text_content(strings_content, filepath)
+        except Exception as e:
+            print(f"Warning: Could not extract strings from {filepath}: {e}", file=sys.stderr)
     
     return violations
 
