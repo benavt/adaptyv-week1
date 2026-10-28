@@ -28,6 +28,12 @@ PRIVATE_HOSTNAMES = ["mimas", "pax"]
 # that resemble AWS keys but are actually scientific data
 CREDENTIAL_CHECK_EXCLUSIONS = {".fasta", ".a3m", ".pdb", ".cif", ".csv"}
 
+# Files to completely skip (contain test data and documentation of violations)
+SKIP_FILES = {
+    "scripts/check_privacy.py",  # This script contains examples of violations
+    "tests/test_check_privacy.py",  # Tests contain example violations
+}
+
 
 def get_tracked_files(repo_root: Path) -> List[Path]:
     """Get all tracked files from git."""
@@ -141,6 +147,11 @@ def check_credentials(content: str, line_num: int, filepath: Path) -> List[Tuple
 
 def scan_file(filepath: Path, repo_root: Path) -> List[Tuple[int, str]]:
     """Scan a file for privacy violations."""
+    # Skip files that contain test data or documentation of violations
+    rel_path = filepath.relative_to(repo_root)
+    if str(rel_path) in SKIP_FILES:
+        return []
+    
     if not is_text_file(filepath):
         return []
     
