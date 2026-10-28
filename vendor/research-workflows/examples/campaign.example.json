@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "campaign_id": "choose-a-name",
+  "title": "Choose a title",
+  "objective": "Explicit scientific question",
+  "recipe": {
+    "stages": {
+      "01_staging": {
+        "method": "validate-inputs",
+        "execution": "local"
+      },
+      "02_design": {
+        "method": "explicit-engine",
+        "execution": "remote"
+      },
+      "03_filtering": {
+        "method": "explicit-prediction-and-scoring",
+        "execution": "mixed"
+      },
+      "04_analysis": {
+        "method": "rank-and-report",
+        "execution": "local"
+      }
+    }
+  }
+}
