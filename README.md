@@ -1,7 +1,7 @@
 # Week1 — EGFR
 
 Independent scientific project `EGFR` for Adaptyv Challenge 01. Prepare inputs
-and analyze results on the Mac; run requested GPU work through Slurm on remote GPU.
+and analyze results on the Mac; run requested GPU work through Slurm on the remote GPU cluster.
 This is the primary source repository. Its historical predecessor is retained
 as a read-only GitHub archive; historical scientific files are organized by campaign locally.
 
