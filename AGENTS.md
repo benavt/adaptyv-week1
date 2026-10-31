@@ -9,7 +9,7 @@ reference/AGENTS.md; read it before invoking retained scientific helpers.
 Use scripts/artifacts.py to resolve historical paths. Do not run archived
 navigation/catalog generators against the old stage layout or overwrite evidence.
 
-Prepare inputs locally, submit requested GPU jobs through sbatch on HOST,
+Prepare inputs locally, submit requested GPU jobs through sbatch on the remote GPU cluster,
 and score/analyze selected verified results on the Mac. Slurm owns scheduling.
 Native adapters for the new run paths must be validated before scientific jobs.
 Record exact constructs, numbering, chemistry, chain roles, species, engine,
@@ -23,12 +23,10 @@ Keep shared code/guide pins deliberate. Candidate records, source-linked scores
 and frozen selections must trace exact sequences to their generation runs.
 Do not invent missing historical lineage or overwrite prior evidence.
 
-When `.gitmodules` adopts `external/research-workflows`, initialize that exact
-submodule and use the commit in `workflow.lock.json`; do not fall back to a
-mutable host checkout if the project pin is unavailable. Unadopted checkouts
-continue to use ignored Fleet `workflow_home` or `WORKFLOWS_HOME`. Keep this
-project's scientific guide pins unchanged during shared-workflow adoption; see
-`docs/WORKSPACE.md` for new-run procedure.
+Workflow infrastructure is vendored in `vendor/research-workflows/` for public
+distribution. The vendored snapshot takes priority over host-level bindings
+(`WORKFLOWS_HOME` or ignored Fleet `workflow_home`). Keep this project's
+scientific guide pins unchanged; see `docs/WORKSPACE.md` for new-run procedure.
 
 Fleet resolves private paths, machines, environments, selected downloads and
 archives. Keep bulk artifacts outside Git; never delete unique/unverified data.

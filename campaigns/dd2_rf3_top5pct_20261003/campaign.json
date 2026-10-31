@@ -13,13 +13,13 @@
       },
       "02_design": {
         "method": "unset; select campaign-specific engine and scientific parameters",
-        "execution": "HOST"
+        "execution": "remote-gpu"
       },
       "03_filtering": {
         "substeps": [
           {
             "method": "unset; select any required prediction/refolding engine",
-            "execution": "HOST"
+            "execution": "remote-gpu"
           },
           {
             "method": "unset; select scoring and acceptance criteria",

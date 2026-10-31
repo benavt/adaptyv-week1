@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "roles": {
+    "control": {
+      "execution": "local-cpu",
+      "requirements": [
+        "Python >=3.9 standard library",
+        "OpenSSH client",
+        "rsync client"
+      ],
+      "validation": "project front door and transport checks"
+    },
+    "analysis": {
+      "execution": "local-cpu",
+      "requirements": "declare and pin dependencies for the selected score/plot methods",
+      "validation": "method-specific input/output smoke test"
+    },
+    "molecular_views": {
+      "execution": "local-cpu",
+      "requirements": "renderer-specific environment and settings",
+      "validation": "renderer smoke test and output inspection"
+    },
+    "foundry": {
+      "execution": "remote-gpu",
+      "requirements": "engine release, checkpoint identity, CUDA/runtime and adapter compatibility",
+      "validation": "native preparation and a deliberately authorized scientific smoke run"
+    },
+    "boltz2": {
+      "execution": "remote-gpu",
+      "requirements": "engine release, checkpoint identity, CUDA/runtime and adapter compatibility",
+      "validation": "native preparation and a deliberately authorized scientific smoke run"
+    }
+  },
+  "physical_bindings": "Resolve actual prefixes/interpreters and inventory hashes from ignored Fleet local/environments.json. Portable role names do not certify dependency completeness."
+}

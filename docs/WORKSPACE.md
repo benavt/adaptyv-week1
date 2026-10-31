@@ -2,13 +2,11 @@
 
 ## Shared workflow source
 
-This repository pins the shared implementation as the
-`external/research-workflows` submodule. Initialize it with
-`git submodule update --init external/research-workflows`; the front door checks
-that its commit matches `workflow.lock.json` before loading shared commands.
-Keep the private Fleet `local/fleet.json` binding for host paths and runtimes.
-Projects without this submodule continue to use their existing `workflow_home`
-binding or an explicit `WORKFLOWS_HOME` override.
+This repository vendors the shared workflow infrastructure in
+`vendor/research-workflows/` for public distribution. The vendored snapshot
+is used automatically. For private development, the host-level `workflow_home`
+binding in Fleet `local/fleet.json` or the `WORKFLOWS_HOME` environment variable
+can still be used, but the vendored workflow takes priority when present.
 
 Use one project (`EGFR`), a campaign for each scientific question, and immutable
 runs for its attempts. The four stage names match locally and remotely:
@@ -16,8 +14,8 @@ runs for its attempts. The four stage names match locally and remotely:
 | Stage | EGFR responsibility | Execution |
 | --- | --- | --- |
 | `01_staging` | Validate constructs, topology and hotspot inputs | Mac |
-| `02_design` | Generate designs with the selected campaign engine | HOST |
-| `03_filtering` | Selected predictions/refolding, scoring and selection | HOST, then Mac |
+| `02_design` | Generate designs with the selected campaign engine | Remote GPU |
+| `03_filtering` | Selected predictions/refolding, scoring and selection | Remote GPU, then Mac |
 | `04_analysis` | Compare, rank, plot and report | Mac |
 
 New campaign scientific choices are explicit. Commands below show the interface; placeholders do
