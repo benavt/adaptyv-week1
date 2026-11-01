@@ -1,0 +1,33 @@
+name: Privacy Check
+
+on:
+  push:
+    branches:
+      - main
+      - experimental
+  pull_request:
+    branches:
+      - main
+      - experimental
+
+jobs:
+  privacy-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install PDF tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y poppler-utils
+    
+    - name: Run privacy checker
+      run: |
+        python3 scripts/check_privacy.py

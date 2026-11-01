@@ -1,0 +1,28 @@
+{
+  "candidate_id": "example-candidate",
+  "sequence": "ACDEFGHIKL",
+  "molecule_class": "protein",
+  "origin": {
+    "campaign_id": "example-campaign",
+    "run_id": "2026-10-05_example_001",
+    "path": "02_design/native-designs.fasta",
+    "sha256": "REPLACE_WITH_SHA256_OF_NATIVE_FASTA",
+    "fasta_id": "native-record-id"
+  },
+  "generation": {
+    "method": "REPLACE_WITH_ACTUAL_GENERATION_METHOD",
+    "version": "REPLACE_WITH_ACTUAL_VERSION",
+    "parameters": {
+      "note": "Replace with exact run settings or their verified identity"
+    },
+    "input_artifacts": [
+      {
+        "note": "Record actual frozen input identities and hashes"
+      }
+    ],
+    "execution_receipt": {
+      "note": "Record actual native execution evidence; remove if unknown"
+    }
+  },
+  "parents": []
+}

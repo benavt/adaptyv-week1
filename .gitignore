@@ -7,16 +7,28 @@
 !overview.md
 !scripts/
 !scripts/workspace.py
+!scripts/workflow_binding.py
+!scripts/check_privacy.py
+!scripts/artifacts.py
+!tests/
+!tests/test_workflow_binding.py
+!tests/test_check_privacy.py
 !docs/
 !docs/WORKSPACE.md
 !docs/CHALLENGE.md
 !submissions/
 !submissions/ranked-template.csv
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
 !campaigns/
 !campaigns/*/
 !campaigns/*/campaign.json
 /campaigns/*/README.md
 /campaigns/*/runs/
+!vendor/
+!vendor/research-workflows/
+!vendor/research-workflows/**
 /reference/
 /local/
 /drafts/
@@ -27,11 +39,17 @@
 
 !scripts/artifacts.py
 
-# Reviewed README presentation assets; bulk scientific packages remain ignored.
+# Reviewed publication PDFs and candidate top20 panel (2026-10-07)
+!candidates/
+!candidates/2026-10-07_current-top20_001/
+!candidates/2026-10-07_current-top20_001/**
+!2026-10-06_egfr-ph-sensitive-binder-methods.pdf
+!2026-10-06_egfr-ph-sensitive-binder-supplement.pdf
+
+# Reviewed README presentation assets (2026-10-06 test panel)
 !docs/REPOSITORY.md
 !scripts/build_readme_panel.py
 !scripts/render_readme_panel.py
-!candidates/
 !candidates/2026-10-06_readme-panel_001/
 !candidates/2026-10-06_readme-panel_001/**
 !publication/

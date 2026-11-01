@@ -1,0 +1,31 @@
+{
+  "observation_id": "example-observation",
+  "candidate_id": "example-candidate",
+  "method": "REPLACE_WITH_ACTUAL_SCORE_METHOD",
+  "version": "REPLACE_WITH_ACTUAL_VERSION",
+  "scope": {
+    "evidence_type": "computational prediction",
+    "species": "REPLACE",
+    "construct": "REPLACE",
+    "assembly": "REPLACE",
+    "pH": "REPLACE"
+  },
+  "artifact": {
+    "campaign_id": "example-campaign",
+    "run_id": "2026-10-05_example_001",
+    "path": "03_filtering/native-scores.json",
+    "sha256": "REPLACE_WITH_SHA256_OF_NATIVE_SCORE_FILE"
+  },
+  "locator": {
+    "format": "json",
+    "pointer": "/scores/native-record-id/value"
+  },
+  "value": 0.0,
+  "candidate_binding": {
+    "kind": "sequence_sha256",
+    "locator": {
+      "format": "json",
+      "pointer": "/scores/native-record-id/sequence_sha256"
+    }
+  }
+}
