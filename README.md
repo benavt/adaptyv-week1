@@ -28,7 +28,7 @@ Each row pairs the **human** and **mouse** EGFR D3 complexes. Species cells show
 | ---: | --- | --- | --- |
 | 01 | [F747/m4](candidates/2026-10-07_current-top20_001/models/01_Human_EGFR_Human_EGFR_747_model_4/Human.png)<br>Strict<br>Stable at all shifts | <a href="candidates/2026-10-07_current-top20_001/models/01_Human_EGFR_Human_EGFR_747_model_4/Human.png"><img src="candidates/2026-10-07_current-top20_001/models/01_Human_EGFR_Human_EGFR_747_model_4/Human.png" width="180" alt="Human EGFR complex: Human_EGFR_Human_EGFR_747_model_4" /></a><br>ipSAE **0.858** · Kd **49.7 nM**<br>H37/H100 pKa **6.905 / 7.107** | <a href="candidates/2026-10-07_current-top20_001/models/01_Human_EGFR_Human_EGFR_747_model_4/Mouse.png"><img src="candidates/2026-10-07_current-top20_001/models/01_Human_EGFR_Human_EGFR_747_model_4/Mouse.png" width="180" alt="Mouse EGFR complex: Human_EGFR_Human_EGFR_747_model_4" /></a><br>ipSAE **0.799** · Kd **60.2 nM**<br>H37/H100 pKa **7.178 / 6.980** |
 | 02 | [LF-559](candidates/2026-10-07_current-top20_001/models/02_Ligand_AI_b6a74871_Design_559/Human.png)<br>Strict<br>Not stable at all shifts | <a href="candidates/2026-10-07_current-top20_001/models/02_Ligand_AI_b6a74871_Design_559/Human.png"><img src="candidates/2026-10-07_current-top20_001/models/02_Ligand_AI_b6a74871_Design_559/Human.png" width="180" alt="Human EGFR complex: Ligand_AI_b6a74871_Design_559" /></a><br>ipSAE **0.927** · Kd **64.7 nM**<br>H37/H100 pKa **6.855 / 6.694** | <a href="candidates/2026-10-07_current-top20_001/models/02_Ligand_AI_b6a74871_Design_559/Mouse.png"><img src="candidates/2026-10-07_current-top20_001/models/02_Ligand_AI_b6a74871_Design_559/Mouse.png" width="180" alt="Mouse EGFR complex: Ligand_AI_b6a74871_Design_559" /></a><br>ipSAE **0.735** · Kd **74.8 nM**<br>H37/H100 pKa **7.351 / 6.537** |
-| 03 | [F428/m1](candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Human.png)<br>Strict<br>Stable at all shifts | <a href="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Human.png"><img src="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Human.png" width="180" alt="Human EGFR complex: Human_EGFR_Human_EGFR_428_model_1" /></a><br>ipSAE **0.766** · Kd **114 nM**<br>H37/H100 pKa **7.181 / 7.666** | <a href="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Mouse.png"><img src="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Mouse.png" width="180" alt="Mouse EGFR complex: Human_EGFR_Human_EGFR_428_model_1" /></a><br>ipSAE **0.907** · Kd **33.2 nM**<br>H37/H100 pKa **6.645 / 7.231** |
+| 03 | [F428/m1](candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Human.png)<br>Strict<br>Stable at all shifts | <a href="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Human.png"><img src="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Human.png" width="180" alt="Human EGFR complex: Human_EGFR_Human_EGFR_428_model_1" /></a><br>ipSAE **0.766** · Kd **114 nM**<br>H37/H100 pKa **7.181 / 6.666** | <a href="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Mouse.png"><img src="candidates/2026-10-07_current-top20_001/models/03_Human_EGFR_Human_EGFR_428_model_1/Mouse.png" width="180" alt="Mouse EGFR complex: Human_EGFR_Human_EGFR_428_model_1" /></a><br>ipSAE **0.907** · Kd **33.2 nM**<br>H37/H100 pKa **6.645 / 7.231** |
 | 04 | [D46-V8S](candidates/2026-10-07_current-top20_001/models/04_D46_130_V8S/Human.png)<br>Strict<br>Stable at all shifts | <a href="candidates/2026-10-07_current-top20_001/models/04_D46_130_V8S/Human.png"><img src="candidates/2026-10-07_current-top20_001/models/04_D46_130_V8S/Human.png" width="180" alt="Human EGFR complex: D46_130_V8S" /></a><br>ipSAE **0.493** · Kd **150 nM**<br>H37/H100 pKa **6.918 / 7.316** | <a href="candidates/2026-10-07_current-top20_001/models/04_D46_130_V8S/Mouse.png"><img src="candidates/2026-10-07_current-top20_001/models/04_D46_130_V8S/Mouse.png" width="180" alt="Mouse EGFR complex: D46_130_V8S" /></a><br>ipSAE **0.811** · Kd **201 nM**<br>H37/H100 pKa **7.048 / 6.959** |
 | 05 | [F126/m4](candidates/2026-10-07_current-top20_001/models/05_Human_EGFR_Human_EGFR_126_model_4/Human.png)<br>Strict<br>Not stable at all shifts | <a href="candidates/2026-10-07_current-top20_001/models/05_Human_EGFR_Human_EGFR_126_model_4/Human.png"><img src="candidates/2026-10-07_current-top20_001/models/05_Human_EGFR_Human_EGFR_126_model_4/Human.png" width="180" alt="Human EGFR complex: Human_EGFR_Human_EGFR_126_model_4" /></a><br>ipSAE **0.742** · Kd **876 nM**<br>H37/H100 pKa **7.200 / 7.001** | <a href="candidates/2026-10-07_current-top20_001/models/05_Human_EGFR_Human_EGFR_126_model_4/Mouse.png"><img src="candidates/2026-10-07_current-top20_001/models/05_Human_EGFR_Human_EGFR_126_model_4/Mouse.png" width="180" alt="Mouse EGFR complex: Human_EGFR_Human_EGFR_126_model_4" /></a><br>ipSAE **0.902** · Kd **44.2 nM**<br>H37/H100 pKa **7.110 / 6.678** |
 | 06 | [LF-559/0061](candidates/2026-10-07_current-top20_001/models/06_LigandAI_559_phswitch_0061/Human.png)<br>Near-window<br>Stable at all shifts | <a href="candidates/2026-10-07_current-top20_001/models/06_LigandAI_559_phswitch_0061/Human.png"><img src="candidates/2026-10-07_current-top20_001/models/06_LigandAI_559_phswitch_0061/Human.png" width="180" alt="Human EGFR complex: LigandAI_559_phswitch_0061" /></a><br>ipSAE **0.899** · Kd **236 nM**<br>H37/H100 pKa **6.777 / 6.615** | <a href="candidates/2026-10-07_current-top20_001/models/06_LigandAI_559_phswitch_0061/Mouse.png"><img src="candidates/2026-10-07_current-top20_001/models/06_LigandAI_559_phswitch_0061/Mouse.png" width="180" alt="Mouse EGFR complex: LigandAI_559_phswitch_0061" /></a><br>ipSAE **0.944** · Kd **64.6 nM**<br>H37/H100 pKa **6.985 / 6.485** |
@@ -78,24 +78,6 @@ Each row pairs the **human** and **mouse** EGFR D3 complexes. Species cells show
 Quality gives equal empirical percentile weights to higher **minimum human/mouse ipSAE** and lower **maximum human/mouse Kd**, using the 103 eligible sequences. DeltaG receives no second weight alongside Kd. Potts direction and pKa proximity remain separate from predicted affinity; DeltaForge accepted no pH input. Near-window ranking places pKa distance before quality and imposes no diversity constraint. Full-precision CSVs determine order; README values are rounded.
 
 Methods: DeltaForge scorer and LigandForge generator on the LigandAI platform, [Watson (2026)](https://doi.org/10.64898/2026.03.14.711748); JustHISpKa, [Hogues, Wei and Sulea (2025)](https://doi.org/10.1021/acs.jcim.4c01957); Foundry-lineage RFdiffusion3, [RosettaCommons Foundry](https://github.com/RosettaCommons/foundry), [Corley et al.](https://doi.org/10.1101/2025.08.14.670328) and [Butcher et al.](https://doi.org/10.1101/2025.09.18.676967); standalone Proton-PottsMPNN redesigns, [Jacobsen et al.](https://doi.org/10.64898/2026.09.30.755438). Model and checkpoint pins are unchanged.
-
-## Additional test panel for manuscript draft
-
-![Proposed pH-dependent DD1/DD2 masking mechanism](publication/figures/2026-10-06_egfr-ph-switch-schematic.svg)
-
-*Design hypothesis:* at pH 7.4 a tethered DD2 mask competes with EGFR for DD1; at pH 6.5 protonation could weaken the mask and favor DD1–EGFR contacts. The cartoon illustrates intended states, not experimentally established structures or affinities.
-
-**[Read the manuscript draft](publication/2026-10-06_manuscript/README.md)** · [Methods](publication/2026-10-06_manuscript/03-methods.md) · [References and original PDFs](publication/2026-10-06_reference-library.md)
-
-### Placeholder panel of 20 designs
-
-The saved **Test Submission** panel is a random sample of 20 exact, deduplicated sequences. **It has not been submitted and is not the final scientific selection.** Order matches the saved test panel. Replace it with a reviewed successor panel when the final set is frozen.
-
-Each species cell shows **ipSAE · predicted DeltaForge Kd in nM**, then **EGFR H37 / H100 pKa**. H37/H100 are EGFR D3 sites (historical full positions 346/409), not binder histidines. pKa scopes differ by campaign; candidate pages preserve context, status, and conditional results. These models and scores do not establish pH-selective binding.
-
-[Panel directory](candidates/2026-10-06_readme-panel_001/) · [Sequence CSV](candidates/2026-10-06_readme-panel_001/test-panel.csv) · [Full metrics](candidates/2026-10-06_readme-panel_001/metrics.csv)
-
-See [candidates/2026-10-06_readme-panel_001/README.md](candidates/2026-10-06_readme-panel_001/README.md) for the complete test panel with all 20 design visualizations.
 
 ## Repository workflow
 
@@ -147,3 +129,21 @@ and a separate task worktree. Changed inputs/settings create a successor run;
 update workflow pins deliberately. Preserve explicit user scientific choices.
 
 Read [challenge](docs/CHALLENGE.md) and [historical navigation](docs/HISTORY.md).
+
+## Additional test panel for manuscript draft
+
+![Proposed pH-dependent DD1/DD2 masking mechanism](publication/figures/2026-10-06_egfr-ph-switch-schematic.svg)
+
+*Design hypothesis:* at pH 7.4 a tethered DD2 mask competes with EGFR for DD1; at pH 6.5 protonation could weaken the mask and favor DD1–EGFR contacts. The cartoon illustrates intended states, not experimentally established structures or affinities.
+
+**[Read the manuscript draft](publication/2026-10-06_manuscript/README.md)** · [Methods](publication/2026-10-06_manuscript/03-methods.md) · [References and original PDFs](publication/2026-10-06_reference-library.md)
+
+### Placeholder panel of 20 designs
+
+The saved **Test Submission** panel is a random sample of 20 exact, deduplicated sequences. **It has not been submitted and is not the final scientific selection.** Order matches the saved test panel. Replace it with a reviewed successor panel when the final set is frozen.
+
+Each species cell shows **ipSAE · predicted DeltaForge Kd in nM**, then **EGFR H37 / H100 pKa**. H37/H100 are EGFR D3 sites (historical full positions 346/409), not binder histidines. pKa scopes differ by campaign; candidate pages preserve context, status, and conditional results. These models and scores do not establish pH-selective binding.
+
+[Panel directory](candidates/2026-10-06_readme-panel_001/) · [Sequence CSV](candidates/2026-10-06_readme-panel_001/test-panel.csv) · [Full metrics](candidates/2026-10-06_readme-panel_001/metrics.csv)
+
+See [candidates/2026-10-06_readme-panel_001/README.md](candidates/2026-10-06_readme-panel_001/README.md) for the complete test panel with all 20 design visualizations.
