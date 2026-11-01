@@ -1,0 +1,49 @@
+{
+  "panel_position": 8,
+  "candidate_id": "DD1_195",
+  "score_design_id": "DD1_195",
+  "sequence_sha256": "e388a6fc5da5f3c7055566b1e725c100d2bd92d688baae36113d7dc107eb78d9",
+  "source_package": "2026-10-05_dd1-three-candidates_003",
+  "source_score_tables": [
+    {
+      "path": "2026-10-05_dd1-three-candidates_003/metrics.csv",
+      "row": "[59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 179, 180, 181]",
+      "sha256": "8adac5993bceec27187b46f6519e0dad25cc2bd5be62e5585f0226b1bbeb4256"
+    },
+    {
+      "path": "2026-10-05_dd1-three-candidates_003/metrics.csv",
+      "row": "[84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 182, 183, 184]",
+      "sha256": "8adac5993bceec27187b46f6519e0dad25cc2bd5be62e5585f0226b1bbeb4256"
+    }
+  ],
+  "models": [
+    {
+      "species": "Human",
+      "source_model": "candidates/2026-10-05_dd1-three-candidates_003/models/DD1_195_Human_model_0.cif",
+      "source_sha256": "285665ab349f02cc31b9e5c3e326fb8456222f4a00d3b53726bee045f7e8738d",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDSLSINATNIKHFKNCTSISGDLHILPVAFRGDSFTHTPPLDPQELDILKTVKEITGFLLIQAWPENRTDLHAFENLEIIRGRTKQHGQFSLAVVSLNITSLGLRSLKEISDGDVIISGNKNLCYANTINWKKLFGTSGQKTKIISNRGENSCKATGQVCHALCSPEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "619f4e93960e69b0d6e37b312fafdddb76975a101bec4934d49f1871f6663002"
+    },
+    {
+      "species": "Mouse",
+      "source_model": "candidates/2026-10-05_dd1-three-candidates_003/models/DD1_195_Mouse_model_0.cif",
+      "source_sha256": "2c530b70f1916a1015887a2fcb38bcd874e5980bf76e13234a9c43e26ca2e2fe",
+      "binder_chain": "A",
+      "egfr_chain": "B",
+      "egfr_sequence": "RKVCNGIGIGEFKDTLSINATNIKHFKYCTAISGDLHILPVAFKGDSFTRTPPLDPRELEILKTVKEITGFLLIQAWPDNWTDLHAFENLEIIRGRTKQHGQFSLAVVGLNITSLGLRSLKEISDGDVIISGNRNLCYANTINWKKLFGTPNQKTKIMNNRAEKDCKAVNHVCNPLCSSEGCWGPEPRDCVS",
+      "egfr_sequence_sha256": "251b388a69a5747da9af623ca62a43d0ae3ed304e472b6c4ee10aa38b0f3b816"
+    }
+  ],
+  "status": "placeholder_test_panel_not_submitted",
+  "affinity_method": "DeltaForge scoring of supplied structure",
+  "pka_scopes": {
+    "Human": "EGFR-only conformation extracted from complex; target EGFR D3 H37/H100",
+    "Mouse": "EGFR-only conformation extracted from complex; target EGFR D3 H37/H100"
+  },
+  "source_selection_manifest": "candidates/2026-10-05_Test_Submission_20_sequences.provenance.json",
+  "source_selection_sha256": "53495039cfc81d11a1fe72f4a5767f59bca850f5b1d23eb038c3a3d847420888",
+  "source_statistics_snapshot": "candidates/2026-10-06_analysis/2026-10-06_stats_006/manifest.json",
+  "source_statistics_manifest_sha256": "a56775d44040b034da1a4236a940e3ab595615277c10c66893ce1a1e4305d36b"
+}
