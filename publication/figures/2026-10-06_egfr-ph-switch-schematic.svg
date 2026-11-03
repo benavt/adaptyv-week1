@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+<title id="title">Proposed pH-dependent DD1/DD2 masking of an EGFR binder</title>
+<desc id="desc">At pH 7.4 a covalently tethered magenta DD2 mask occupies cyan DD1. At pH 6.5 the proposed accessible state binds grey EGFR domain III through contacts involving target histidines H37 and H100. Both panels are hypotheses, not measured pH-specific structures.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#556575"/></marker></defs>
+<rect width="1200" height="640" rx="20" fill="#f7f9fc"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#213448">
+<text x="40" y="48" font-size="29" font-weight="700">Designing an acid-favored EGFR binder</text>
+<text x="40" y="79" font-size="17" fill="#607184">A proposed proton-linked mask + receptor-contact mechanism</text>
+<rect x="28" y="105" width="550" height="398" rx="17" fill="white" stroke="#dce3eb"/>
+<rect x="622" y="105" width="550" height="398" rx="17" fill="white" stroke="#dce3eb"/>
+<rect x="47" y="122" width="114" height="33" rx="16" fill="#edf1f6"/>
+<text x="65" y="145" font-size="20" font-weight="700">pH 7.4</text>
+<text x="179" y="146" font-size="20" font-weight="700">Intended masked state</text>
+<rect x="641" y="122" width="114" height="33" rx="16" fill="#e1f4f1"/>
+<text x="659" y="145" font-size="20" font-weight="700">pH 6.5</text>
+<text x="773" y="146" font-size="20" font-weight="700">Intended binding state</text>
+<!-- Neutral-pH panel: tether remains explicit. -->
+<path d="M194 267 C162 205 178 180 241 203" fill="none" stroke="#8393a3" stroke-width="5"/>
+<path d="M104 281 C99 237 126 216 166 221 C190 206 224 224 235 252 C253 271 246 303 232 322 C219 353 174 363 137 341 C105 333 94 306 104 281Z" fill="#25b9cd" stroke="#16869b" stroke-width="2.5"/>
+<text x="129" y="291" font-size="26" font-weight="700">DD1</text>
+<path d="M231 203 C255 190 282 204 285 236 L290 301 C287 322 262 328 246 311 C263 281 257 245 231 226Z" fill="#dc73b5" stroke="#ad4086" stroke-width="2.5"/>
+<text x="249" y="263" font-size="17" font-weight="700" fill="#662149">DD2</text>
+<path d="M416 229 C402 190 441 174 480 191 C511 211 533 236 520 269 C535 304 511 334 478 338 C452 351 420 327 426 299 C405 277 397 248 416 229Z" fill="#cbd2db" stroke="#929eac" stroke-width="2.5"/>
+<text x="432" y="253" font-size="22" font-weight="700">EGFR</text><text x="448" y="281" font-size="18">D3</text>
+<path d="M306 270H388" stroke="#98a4b1" stroke-width="2" stroke-dasharray="6 6"/>
+<path d="M339 257L357 281M357 257L339 281" stroke="#98a4b1" stroke-width="3"/>
+<text x="72" y="394" font-size="18" font-weight="700">DD2 competes for the DD1 binding face</text>
+<text x="72" y="425" font-size="16" fill="#607184">Neutral-pH mask contacts are a design objective.</text>
+<text x="72" y="453" font-size="16" fill="#607184">Grey curved line: covalent DD2–DD1 tether.</text>
+<!-- Acidic-pH panel: receptor sites face binder carboxylates. -->
+<path d="M763 281 C758 237 785 216 825 221 C849 206 883 224 894 252 C912 271 905 303 891 322 C878 353 833 363 796 341 C764 333 753 306 763 281Z" fill="#25b9cd" stroke="#16869b" stroke-width="2.5"/>
+<text x="788" y="291" font-size="26" font-weight="700">DD1</text>
+<path d="M850 226 C856 178 794 160 756 195" fill="none" stroke="#8393a3" stroke-width="5"/>
+<path d="M700 188 C709 168 740 168 765 182 C788 194 787 215 766 224 C744 239 723 232 708 215Z" fill="#dc73b5" stroke="#ad4086" stroke-width="2.5"/>
+<text x="719" y="206" font-size="19" font-weight="700" fill="#662149">DD2</text>
+<circle cx="756" cy="172" r="16" fill="#f8d8ec" stroke="#ad4086"/><text x="744" y="178" font-size="17" fill="#662149">H+</text>
+<path d="M951 229 C937 190 976 174 1015 191 C1046 211 1068 236 1055 269 C1070 304 1046 334 1013 338 C987 351 955 327 961 299 C940 277 932 248 951 229Z" fill="#cbd2db" stroke="#929eac" stroke-width="2.5"/>
+<text x="973" y="253" font-size="22" font-weight="700">EGFR</text><text x="989" y="281" font-size="18">D3</text>
+<circle cx="937" cy="244" r="20" fill="#e1eedf" stroke="#5b8a53"/><text x="923" y="251" font-size="20" fill="#386431">H+</text>
+<circle cx="942" cy="302" r="20" fill="#e1eedf" stroke="#5b8a53"/><text x="928" y="309" font-size="20" fill="#386431">H+</text>
+<text x="871" y="251" font-size="18" font-weight="700" fill="#085e70">−</text>
+<text x="876" y="309" font-size="18" font-weight="700" fill="#085e70">−</text>
+<path d="M891 244H914M896 302H919" stroke="#64806d" stroke-width="3" stroke-dasharray="4 4"/>
+<path d="M970 356L953 324" stroke="#5b8a53" stroke-width="1.5"/>
+<text x="929" y="378" font-size="15" fill="#386431">EGFR H37 / H100</text>
+<text x="662" y="412" font-size="18" font-weight="700">Expose DD1; favor receptor contacts</text>
+<text x="662" y="441" font-size="16" fill="#607184">DD2 protonation could weaken masking.</text>
+<text x="662" y="470" font-size="16" fill="#607184">Target His protonation could favor DD1 carboxylates.</text>
+<path d="M583 294H614" stroke="#556575" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="40" y="541" font-size="18" font-weight="700">Design → predict human + mouse complexes → assess confidence, site pKas and affinity</text>
+<text x="40" y="576" font-size="16" fill="#607184">Site-specific pKas, geometry and competing states determine whether the proposed response occurs.</text>
+<text x="40" y="609" font-size="16" fill="#607184">Schematic only • no measured switching, state populations or pH-specific Kd are established.</text>
+</g></svg>

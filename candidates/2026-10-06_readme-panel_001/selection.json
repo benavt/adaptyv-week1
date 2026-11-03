@@ -1,0 +1,190 @@
+{
+  "status": "placeholder_test_panel_not_submitted",
+  "selection_method": "Uniform random sampling without replacement of deduplicated exact sequences, using Node crypto.randomInt Fisher-Yates shuffle",
+  "source_manifest": "candidates/2026-10-05_Test_Submission_20_sequences.provenance.json",
+  "source_manifest_sha256": "53495039cfc81d11a1fe72f4a5767f59bca850f5b1d23eb038c3a3d847420888",
+  "original_csv_sha256": "25dd2f202917c7ed939eab3fd3fbd546a18c0e5f399f047a6df55ae0c6f812e0",
+  "csv_note": "test-panel.csv reconstructed from the saved selected records; original CSV unavailable locally; no claim of original CSV byte identity.",
+  "selected": [
+    {
+      "name": "DD1_062_phswitch_0557",
+      "sequence": "MVSIDVSVGSSNAKTAAVANAINTAIPSAFVYGFGAAAAPAANQGVSASSSLRPDVGGLHISVPADKLKEVIATVAAAAGAAPINISLD",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_062_phswitch_0557 parent=DD1_062 rank=2 mean_ipSAE=0.881598",
+      "sequence_sha256": "7d679d322e903c46adb0c37866125d0e878257338003504db7d4b5d5d5ab643e",
+      "submission_name": "Test Submission 01 - DD1_062_phswitch_0557"
+    },
+    {
+      "name": "Ligand_AI_b6a74871_Design_927",
+      "sequence": "DSGERGNPLTESDGLVYESYDVQRVVNDYFYLKDSIVALTKDAALASLAFSTSTV",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_ligandai-egfr-top10_001/sequences.fasta",
+      "header": "rank_4|Ligand_AI_b6a74871_Design_927|binder_chain_A",
+      "sequence_sha256": "5619c7f8df94ad751ce19b3f9d1158af02087621ad9e79dd9932b1fbc356f08d",
+      "submission_name": "Test Submission 02 - Ligand_AI_b6a74871_Design_927"
+    },
+    {
+      "name": "DD1_062_phswitch_0765",
+      "sequence": "MVTIKVSVGSSNAKTAAVANAITTAIPHAFVYGFGAAAAPAANQGVSASASLHAGEGGIIISVPADKLKEVIATVAAAAGAAPINAGII",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_062_phswitch_0765 parent=DD1_062 rank=5 mean_ipSAE=0.868537",
+      "sequence_sha256": "05218704ae02b2f33493876cf9934652fc4eff537aeaf45f468944f571f2e267",
+      "submission_name": "Test Submission 03 - DD1_062_phswitch_0765"
+    },
+    {
+      "name": "rank_05_D46_130_model_1_chain_A",
+      "sequence": "AAAKEHTVGEPLAKSEVLTLTGEGDGDSSIIVAVVSEDNTTLKATIISGPPVLVGDYLRDTISNSVYQIISSDNNNDIILPGDVVTLKKID",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_d46-130_001/sequences.fasta",
+      "header": "rank_05_D46_130_model_1_chain_A",
+      "sequence_sha256": "2146dd8a58558312e3cb20fabb90a23ec9f8cea755bdeddde67bbf6fe84b3660",
+      "submission_name": "Test Submission 04 - rank_05_D46_130_model_1_chain_A"
+    },
+    {
+      "name": "DD1_195_phswitch_0043",
+      "sequence": "LILLAAATVLTLQKINLILGAQNVAVNEDAAKKALSNLADALFAQNTINAAKAVLLMSHLGAPVSPEVYQKAMDLMQFHDFFVSKIISQDEAYRNSLHKVLEEVINA",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_195_phswitch_0043 parent=DD1_195 rank=7 mean_ipSAE=0.846024",
+      "sequence_sha256": "34b025ca13ad1af9a60c9f1d9767afab512ca317e70c12c1c7aacc517a010a0f",
+      "submission_name": "Test Submission 05 - DD1_195_phswitch_0043"
+    },
+    {
+      "name": "Ligand_AI_b6a74871_Design_774",
+      "sequence": "LGIKGLLIANSSVKEFQEVQEGAAKSFQKEEELDSKDGERFKGSTVSSARINFALGYEAL",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_ligandai-egfr-top10_001/sequences.fasta",
+      "header": "rank_10|Ligand_AI_b6a74871_Design_774|binder_chain_A",
+      "sequence_sha256": "313f2a0705c93a18fee8ebb4a436c790abb6d99765398ebf83c2bcccd2393288",
+      "submission_name": "Test Submission 06 - Ligand_AI_b6a74871_Design_774"
+    },
+    {
+      "name": "DD1_062",
+      "sequence": "MVTIKVSVGSSNAKTAAVANAINTAIPSADVYGVGAAAAPAANQGVSASSSLRPDVGGIIITVPADKLKEVIATVAAAAGAAPINAGII",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-three-candidates_003/sequences.fasta",
+      "header": "DD1_062|original=Human_EGFR_Human_EGFR_1169_model_4|run=DD1_Human_EGFR_hotspots_09_29|length=89",
+      "sequence_sha256": "02c41409a2ec2bd5a16cc6aa7a1118fc7d45c5dbd256073ca114b1c843b5e69d",
+      "submission_name": "Test Submission 07 - DD1_062"
+    },
+    {
+      "name": "DD1_195",
+      "sequence": "LILLAAATVLTLQKINLILGAQNVAVNEDAAKKALSNLADALFAQNTINAAKAVLLMSHLGAPVSPEVYQKAVQLLNINSDDVSKIISQDEAYRNSLHKVLEEVINA",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-three-candidates_003/sequences.fasta",
+      "header": "DD1_195|original=Human_EGFR_Human_EGFR_50_model_6|run=DD1_Human_EGFR_hotspots_09_29|length=107",
+      "sequence_sha256": "e388a6fc5da5f3c7055566b1e725c100d2bd92d688baae36113d7dc107eb78d9",
+      "submission_name": "Test Submission 08 - DD1_195"
+    },
+    {
+      "name": "DD1_195_phswitch_0096",
+      "sequence": "LILEAAAVVDPLAHIMAELGAQNVAVNEDAAKKALSNLADALFAQNTINAAKAVLLMADLGHFVSPEVYQKAVQLLNINSDDVSKIISQDEAYRNSLHKVLEEVINA",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_195_phswitch_0096 parent=DD1_195 rank=8 mean_ipSAE=0.844520",
+      "sequence_sha256": "b1f0ed664538c4c21e37018b0a3556c34264ff426d312afe6b177505043dcb2e",
+      "submission_name": "Test Submission 09 - DD1_195_phswitch_0096"
+    },
+    {
+      "name": "DD1_310_phswitch_0217",
+      "sequence": "ATISSHLFKVDANTDPKLVADGAQSVLAHAVAANASTLVLGVGVLGDITVTAAHNMATLLKQAAGLCAAHGIEVLPPVIFPSDALPGFEEITAILQKAFEEL",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_310_phswitch_0217 parent=DD1_310 rank=7 mean_ipSAE=0.786964",
+      "sequence_sha256": "44b1097380b7769afbf0fa38f4afe562e90fc93d9a891ffcb515f451815f31e4",
+      "submission_name": "Test Submission 10 - DD1_310_phswitch_0217"
+    },
+    {
+      "name": "DD1_310_phswitch_0504",
+      "sequence": "ATISSLLLKVDANTDPKLVADTIQDAVDAAIAANASTLVLGVKVLGDITVTAAHNMATLLKQAAGLCAAHGIEVLPPHIFPSDALPGFEEITAILLKAFEEL",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_310_phswitch_0504 parent=DD1_310 rank=2 mean_ipSAE=0.803553",
+      "sequence_sha256": "61aceee08bcd677efa394c02b7225d712aebb7357ce2c20ee5acda8e3393d05e",
+      "submission_name": "Test Submission 11 - DD1_310_phswitch_0504"
+    },
+    {
+      "name": "DD1_195_phswitch_0591",
+      "sequence": "LILLAAATVLTLQKINLILGAQNVAVNEDAAKKALSNLADALFAQNTINAAKAVLLLAHVGAPVSPEVYQKAVQLLNIHSFDVSKIISQDEAYRNSLHKVLEEVINA",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_195_phswitch_0591 parent=DD1_195 rank=1 mean_ipSAE=0.889757",
+      "sequence_sha256": "2aba3f9e3f4a6bf9c191c2638d9e12e6d89b0d7ec6210c0adf4724324f001874",
+      "submission_name": "Test Submission 12 - DD1_195_phswitch_0591"
+    },
+    {
+      "name": "DD1_310_phswitch_0946",
+      "sequence": "AVDSSLVLKVDANTDPKLVADTIQDAVDAAIAANAAHMYLGVGVLGDITVTAAHNMATLLKQAAGLCAAHGIEVAPPVIFPSDALPGFDQIAAILQKAFEEL",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_310_phswitch_0946 parent=DD1_310 rank=9 mean_ipSAE=0.783302",
+      "sequence_sha256": "84c791802780933b3140a9083a12c08bd66d199bfe27096707c513db90d68112",
+      "submission_name": "Test Submission 13 - DD1_310_phswitch_0946"
+    },
+    {
+      "name": "Ligand_AI_b6a74871_Design_961",
+      "sequence": "VLSDFPALYYALVYSVEQYDISILNLTEFEYKKDRLTATLKFGQTTEKQSTCLYFKL",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_ligandai-egfr-top10_001/sequences.fasta",
+      "header": "rank_5|Ligand_AI_b6a74871_Design_961|binder_chain_A",
+      "sequence_sha256": "f03582b54ecc4667a26417d84ce240df66f5c9ef019fe31547622aebec24bc0f",
+      "submission_name": "Test Submission 14 - Ligand_AI_b6a74871_Design_961"
+    },
+    {
+      "name": "DD1_310_phswitch_0516",
+      "sequence": "ATISSLVLKVDANTDPKLVADTIQDAVDAAIAANASTLNLGVGILKNPTVTAAHNMATLLKQAAGLCAAHGIEVLPPVIFPSAFLTGHQVITNILQKAFEEL",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_310_phswitch_0516 parent=DD1_310 rank=6 mean_ipSAE=0.793662",
+      "sequence_sha256": "888cf05ad59f41b310044c8d598dfe2f04ff33ee649b1a3c659fc27afd3a6f7b",
+      "submission_name": "Test Submission 15 - DD1_310_phswitch_0516"
+    },
+    {
+      "name": "DD1_195_phswitch_0458",
+      "sequence": "LILLAAATVLTLQKINLILGAQNVAVNEDAAKKALSNLADALFAQNTINAAKAVLLMSHLGAPVSPEVYVKAVELLKINSDDVSKLIHNNDAYLNSLHKVLEEVINA",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_195_phswitch_0458 parent=DD1_195 rank=9 mean_ipSAE=0.844279",
+      "sequence_sha256": "39eb58ada5178b5ca9f2d4df86f5e63033b7707bc5a7cc50620ea457f700017d",
+      "submission_name": "Test Submission 16 - DD1_195_phswitch_0458"
+    },
+    {
+      "name": "DD1_Human_EGFR_APNovo_0960",
+      "sequence": "ANPTVEQLKAIAKKEIDYYVDLGKKELGVSDAEAEAARKKAEAKIAEADKAPTTEERAKIVRDAIAETAISIAEKSKIGETYVGSSDSDIVKLPPA",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_alphaprotein-novo-top10_001/sequences.fasta",
+      "header": "rank_06|DD1_Human_EGFR_APNovo_0960|mean_ipSAE=0.932300",
+      "sequence_sha256": "04a7271a48a87ea1edbfb83d093fd4edb84d2cd7d8be09b37c3b50fbdcfca506",
+      "submission_name": "Test Submission 17 - DD1_Human_EGFR_APNovo_0960"
+    },
+    {
+      "name": "Ligand_AI_b6a74871_Design_973",
+      "sequence": "NDKVGFGSFKDDRPFTKPPVEYKVPLQLGGTKLNYTLDDIFQLSVASEISVAPELLSE",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_ligandai-egfr-top10_001/sequences.fasta",
+      "header": "rank_9|Ligand_AI_b6a74871_Design_973|binder_chain_A",
+      "sequence_sha256": "4d0513335b882aa4df1619127607c1442a7c1b4ad4d68c839bc4d00045807065",
+      "submission_name": "Test Submission 18 - Ligand_AI_b6a74871_Design_973"
+    },
+    {
+      "name": "DD1_062_phswitch_0514",
+      "sequence": "MVTIKVSVGSSNAKTAAVANAITQKTPHAFVYGVGAAAAPAANQGVSASSSLRPDVGGIIISTPASCLKEVIATVAAAAGAAPINAGII",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_062_phswitch_0514 parent=DD1_062 rank=7 mean_ipSAE=0.858648",
+      "sequence_sha256": "5afc5dfeb950092468f98ed83d28cc80812800c5192f7e6d5b51af312c6b0988",
+      "submission_name": "Test Submission 19 - DD1_062_phswitch_0514"
+    },
+    {
+      "name": "DD1_310_phswitch_0412",
+      "sequence": "ATISSLVLKVDANTDPKLVADTIQDAVDAAIAANASDMDLGVGVLGDITVTAAHNMATLLKQAAGLCAAHGIIVHPPVIFPSDALPGDAAIHAILLKAFEEL",
+      "molecule_class": "single_chain",
+      "source": "candidates/2026-10-05_dd1-ph-redesigns_001/sequences.fasta",
+      "header": "DD1_310_phswitch_0412 parent=DD1_310 rank=5 mean_ipSAE=0.795546",
+      "sequence_sha256": "b7dd127dcea3e8ddc497166f147fdcc69ee3ad07a9c234db8f3e61c3535a63a4",
+      "submission_name": "Test Submission 20 - DD1_310_phswitch_0412"
+    }
+  ]
+}

@@ -129,3 +129,21 @@ and a separate task worktree. Changed inputs/settings create a successor run;
 update workflow pins deliberately. Preserve explicit user scientific choices.
 
 Read [challenge](docs/CHALLENGE.md) and [historical navigation](docs/HISTORY.md).
+
+## Additional test panel for manuscript draft
+
+![Proposed pH-dependent DD1/DD2 masking mechanism](publication/figures/2026-10-06_egfr-ph-switch-schematic.svg)
+
+*Design hypothesis:* at pH 7.4 a tethered DD2 mask competes with EGFR for DD1; at pH 6.5 protonation could weaken the mask and favor DD1–EGFR contacts. The cartoon illustrates intended states, not experimentally established structures or affinities.
+
+**[Read the manuscript draft](publication/2026-10-06_manuscript/README.md)** · [Methods](publication/2026-10-06_manuscript/03-methods.md) · [References and original PDFs](publication/2026-10-06_reference-library.md)
+
+### Placeholder panel of 20 designs
+
+The saved **Test Submission** panel is a random sample of 20 exact, deduplicated sequences. **It has not been submitted and is not the final scientific selection.** Order matches the saved test panel. Replace it with a reviewed successor panel when the final set is frozen.
+
+Each species cell shows **ipSAE · predicted DeltaForge Kd in nM**, then **EGFR H37 / H100 pKa**. H37/H100 are EGFR D3 sites (historical full positions 346/409), not binder histidines. pKa scopes differ by campaign; candidate pages preserve context, status, and conditional results. These models and scores do not establish pH-selective binding.
+
+[Panel directory](candidates/2026-10-06_readme-panel_001/) · [Sequence CSV](candidates/2026-10-06_readme-panel_001/test-panel.csv) · [Full metrics](candidates/2026-10-06_readme-panel_001/metrics.csv)
+
+See [candidates/2026-10-06_readme-panel_001/README.md](candidates/2026-10-06_readme-panel_001/README.md) for the complete test panel with all 20 design visualizations.

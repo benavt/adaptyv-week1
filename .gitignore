@@ -38,3 +38,25 @@
 !docs/HISTORY.md
 
 !scripts/artifacts.py
+
+# Reviewed publication PDFs and candidate top20 panel (2026-10-07)
+!candidates/
+!candidates/2026-10-07_current-top20_001/
+!candidates/2026-10-07_current-top20_001/**
+!2026-10-06_egfr-ph-sensitive-binder-methods.pdf
+!2026-10-06_egfr-ph-sensitive-binder-supplement.pdf
+
+# Reviewed README presentation assets (2026-10-06 test panel)
+!docs/REPOSITORY.md
+!scripts/build_readme_panel.py
+!scripts/render_readme_panel.py
+!candidates/2026-10-06_readme-panel_001/
+!candidates/2026-10-06_readme-panel_001/**
+!publication/
+!publication/2026-10-06_reference-library.md
+!publication/2026-10-06_manuscript/
+!publication/2026-10-06_manuscript/*.md
+!publication/figures/
+!publication/figures/README.md
+!publication/figures/2026-10-06_egfr-ph-switch-schematic.svg
+!publication/2026-10-06_manuscript/source-manifest.json
