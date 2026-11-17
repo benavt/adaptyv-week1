@@ -9,10 +9,12 @@
 !scripts/workspace.py
 !scripts/workflow_binding.py
 !scripts/check_privacy.py
+!scripts/check_pr_text.py
 !scripts/artifacts.py
 !tests/
 !tests/test_workflow_binding.py
 !tests/test_check_privacy.py
+!tests/test_check_pr_text.py
 !docs/
 !docs/WORKSPACE.md
 !docs/CHALLENGE.md
